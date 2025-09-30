@@ -14,7 +14,7 @@ console.log(array1.concat(array2,array3));//(19) [3, 4, 5, 6, 7, 8, 9, 0, 'hdghf
 console.log("Prueba join:");
 //Une los elementos de un array y los almacena en un string
 console.log(array1.join());//3,4,5,6,7,8,9,0,hdghfdgh,76
-
+//fdg
 console.log("Prueba git:");
 console.log("Prueba pop:");
 //Elimina el ultimo elemento de un array
