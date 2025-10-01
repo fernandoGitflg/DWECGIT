@@ -56,7 +56,7 @@ console.log("Prueba split:");
 console.log(string3);//Mi nombre es Jose
 console.log(string3.split("e"));//(4) ['Mi nombr', ' ', 's Jos', '']
 
-//Determina si un streing termina con otro string
+//Determina si un string termina con otro string
 console.log("Prueba endsWith:");
 console.log(string1);//Hola buenos dias, que tal
 console.log(string4);//DEPORTE
@@ -93,7 +93,7 @@ console.log(string5.repeat(4));
 //Reemplaza un string con otro
 console.log("Prueba replace:");
 console.log(string6);//Que tal, que buen dia hace hoy a que si
-console.log(string6.replace(/que/g, "ayer"));//Que tal, ayer buen dia hace hoy a ayer si
+console.log(string6.replace(/q/g, "ayer"));//Que tal, ayer buen dia hace hoy a ayer si
 
 //Elimina los espacios en blanco
 console.log("Prueba trim:");
