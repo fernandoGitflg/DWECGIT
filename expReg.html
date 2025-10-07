@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombre=prompt("Nombre alumno");
+        comprobar("El nombre:",nombre,/^[A-Z][a-záéíóú]+$/);
+        let apellidos=prompt("Apellidos alumno");
+        comprobar("Los apellidos:",apellidos,/^[A-Z][a-záéíóúñ]+(\s[A-Z][a-záéíóúñ]+)?$/);
+        let edad=prompt("Edad alumno");
+        comprobar("La edad:", edad, /^\d{1,3}$/);
+        let email=prompt("Email alumno");
+        comprobar("El email: ",email,/^[\w-]+@[A-Za-z0-9]+\.[a-z]{2,3}$/);
+        let telefono=prompt("Telefono alumno");
+        comprobar("El telefono: ",telefono,/^[69][0-9]{8}$/);
+        let centro=prompt("Centro alumno");
+        comprobar("El telefono: ",telefono,/^.{5,120}$/);
+        let curso=prompt("Curso alumno",/^[12]$/);
+        let observaciones=prompt("Observaciones alumno");
+        let anio=prompt("Anio alumno");
+
+        function comprobar(titulo,dato,expr){
+            if(expr.test(dato)==false){
+                alert(titulo+dato+" no coincide coincide con el patron: "+expr)
+            }else{
+                alert("Dato bien introducido")
+            }
+            ;   
+        }
+
+        
+    </script>
+</body>
+</html>
+
