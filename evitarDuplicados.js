@@ -9,5 +9,8 @@ while (array.length > 0) {
 }
 console.log(outputArray.reverse());
 
-outputArray=Array.from
+let array2 = [100,23,23,23,23,67,45];
+let outputArray2 = Array.from(new Set(array2));
+
+console.log(outputArray2);
 
