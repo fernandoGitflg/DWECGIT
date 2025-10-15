@@ -74,12 +74,19 @@ let res2 = frase.split(" ")
     .reduce((ac, l) => ac + l);
 console.log(res2);//6
 
-//Funcion f1 que devuelva array con los numeros multiplicados por 4 filtrando los resultados divisibles por 4
+//Funcion f1 que devuelva array con los numeros multiplicados por 3 filtrando los resultados divisibles por 4
 let a=[1,2,3,4];
 let f1 = (a)=>{
     console.log(a.map(p=>p*3)
-    .filter(p=>(p/4)!=0))
+    .filter(p=>(p%4)!=0))
 };
 f1(a);
-
-
+//Una funcion f2 q visualice en la consola los elementosq no sean divisibles por 2
+let f2= (a)=>console.log(a.filter(p=>(p%2)!=0));
+f2(a);
+//Una funcion f3 q devuelva la suma de todos los elementos q estén en posición par
+let f3= (a)=>{
+    console.log(a.filter((p,i)=>(i%2)==0)
+    .reduce((ac,n)=>ac+n));
+};
+f3(a);
