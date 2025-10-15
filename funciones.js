@@ -85,7 +85,7 @@ let saludo5 = function(a,b){
 }
 let saludo6 = (a,b)=>{
     "La suma es "+(a+b);
-    "La resta es "+(a-b);
 }
 console.log(saludo5(1,2));
 console.log(saludo6(1,2));
+
