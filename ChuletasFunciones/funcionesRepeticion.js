@@ -75,18 +75,85 @@ let res2 = frase.split(" ")
 console.log(res2);//6
 
 //Funcion f1 que devuelva array con los numeros multiplicados por 3 filtrando los resultados divisibles por 4
-let a=[1,2,3,4];
-let f1 = (a)=>{
-    console.log(a.map(p=>p*3)
-    .filter(p=>(p%4)!=0))
+let a = [1, 2, 3, 4];
+let f1 = a => {
+    console.log(a.map(p => p * 3)
+        .filter(p => (p % 4) != 0))
 };
 f1(a);
 //Una funcion f2 q visualice en la consola los elementosq no sean divisibles por 2
-let f2= (a)=>console.log(a.filter(p=>(p%2)!=0));
+let f2 = a => a.filter(p => (p % 2) != 0).forEach(n => console.log(n));
 f2(a);
 //Una funcion f3 q devuelva la suma de todos los elementos q estén en posición par
-let f3= (a)=>{
-    console.log(a.filter((p,i)=>(i%2)==0)
-    .reduce((ac,n)=>ac+n));
+let f3 = a => {
+    return (a.filter((p, i) => (i % 2) == 0)
+        .reduce((ac, n) => ac + n));
 };
-f3(a);
+console.log(f3(a));
+
+let p1 = Math.floor(Math.random() * 2.99) + 1;
+let p2 = Math.floor(Math.random() * 2.99) + 1;
+console.log(p1);
+console.log(p2);
+let comparar = p => {
+    if (p == 1) {
+        p = "Piedra";
+    } else if (a == 2) {
+        p = "Papel";
+    } else {
+        p = "Tijera";
+    }
+}
+let victoria = (p1, p2) => {
+    if (p1 === "Piedra" && p2 === "Tijera") {
+        console.log("p1 es el ganador");
+    } else if (p1 === "Tijera" && p2 === "Papel") {
+        console.log("p1 es el ganador");
+    } else if (p1 === "Papel" && p2 === "Piedra") {
+        console.log("p1 es el ganador");
+    } else if (p1 === p2) {
+        console.log("Hay empate");
+    } else {
+        console.log("p2 es el ganador");
+    }
+}
+comparar(p1);
+comparar(p2);
+victoria(p1, p2);
+
+let arr = [1, 2, 3];
+console.log("Antes");
+console.log(arr);
+let fn = a => {
+    a.pop();
+    console.log(a);
+};
+fn(arr);
+console.log("Despues")
+console.log(arr);
+
+
+//Invocar un unico metodo llamado calcular para realizar las 4 opreaciones aritmeitcas basicas
+let calcular = (op, ...numeros)=>{
+    let resultado = 0;
+    switch (op) {
+        case "+":
+            resultado = numeros.reduce((ac, n) => ac+n);
+            break;
+        case "-":
+            resultado = numeros.reduce((ac, n) => ac-n);
+            break;
+        case "*":
+            resultado = numeros.reduce((ac, n) => ac*n);
+            break;
+        case "/":
+            resultado = numeros.reduce((ac, n) => ac/n);
+            break;
+    }
+    return resultado;
+}
+console.log(calcular("+",1,2,3,4));
+console.log(calcular("-",1,2,3,4));
+console.log(calcular("*",1,2,3,4));
+console.log(calcular("/",1,2,3,4));
+

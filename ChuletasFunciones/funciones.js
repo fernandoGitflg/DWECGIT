@@ -89,3 +89,12 @@ let saludo6 = (a,b)=>{
 console.log(saludo5(1,2));
 console.log(saludo6(1,2));
 
+
+function hello2(){
+    console.log("Hola Mundo");
+    return function(){
+        return "Hola interno";
+    }
+}
+console.log(hello2());
+console.log(hello2()());
