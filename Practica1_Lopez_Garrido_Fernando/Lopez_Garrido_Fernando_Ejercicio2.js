@@ -14,12 +14,9 @@ console.log("Funcionf4:");
 console.log(f4(texto));
 
 let f5 = frase =>{
-    let totalLetras= frase.split(" ")
+    return (frase.split(" ")
     .map((palabra,i,arr) =>arr[i].length)
-    .reduce((ac,n,i,arr)=>ac+n);
-    let totalPalabras= frase.split(" ").length
-
-    return totalLetras/totalPalabras;
+    .reduce((ac,n,i,arr)=>ac+n))/frase.split(" ").length;
 }
 console.log("Funcionf5:");
 console.log(f5(texto));

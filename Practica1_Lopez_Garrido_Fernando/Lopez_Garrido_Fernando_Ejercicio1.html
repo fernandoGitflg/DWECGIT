@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <script>
+        const usuarios = new Map();
+
+        function generarContraseña(nombre, apellido1, apellido2, opcion) {
+            switch (opcion) {
+                case "1":
+                    return nombre.toLowerCase() +
+                        apellido1.charAt(0).toUpperCase() +
+                        apellido2.charAt(0).toUpperCase();
+                case "2":
+                    return nombre.slice(0, 2).toUpperCase() +
+                        apellido1.slice(0, 2).toLowerCase() +
+                        apellido2.slice(0, 2).toLowerCase();
+                case "3":
+                    return nombre.split("")
+                        .map((letra, i) => letra + i)
+                        .join("");
+                default:
+                    break;
+            }
+        }
+
+        function añadirUsuario() {
+            let nombre = prompt("Introduce el nombre:");
+            let apellido1 = prompt("Introduce el primer apellido:");
+            let apellido2 = prompt("Introduce el segundo apellido:");
+            let nombreCompleto = nombre + " " + apellido1 + " " + apellido2;
+
+            if (usuarios.has(nombreCompleto)) {
+                alert("El usuario ya existe.");
+            } else {
+                let tamaño = (nombre + apellido1 + apellido2).replace(/\s/g, "").length;
+                alert("Tamaño sin espacios: " + tamaño);
+                alert("Minúsculas: " + nombreCompleto.toLowerCase());
+                alert("Mayúsculas: " + nombreCompleto.toUpperCase());
+                alert("Nombre: " + nombre);
+                alert("Apellido 1: " + apellido1);
+                alert("Apellido 2: " + apellido2);
+            }
+
+            let opcion = prompt("Elige opción de contraseña:\n1. Nombre completo + Iniciales apellidos\n2. Dos iniciales de nombre y de los dos apellidos\n3. Letra de nombre + posición");
+
+            let contraseña = generarContraseña(nombre, apellido1, apellido2, opcion);
+            if (contraseña) {
+                alert("Contraseña propuesta: " + contraseña);
+                usuarios.set(nombreCompleto, contraseña);
+            } else {
+                alert("Opción inválida.");
+            }
+        }
+
+        function modificarUsuario() {
+            const nombre = prompt("Introduce el nombre completo:");
+            const contraseñaActual = prompt("Introduce la contraseña actual:");
+
+            if (usuarios.get(nombre) === contraseñaActual) {
+                const nuevaContraseña = prompt("Introduce la nueva contraseña:");
+                usuarios.set(nombre, nuevaContraseña);
+                alert("Contraseña modificada correctamente.");
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+            }
+        }
+
+        function eliminarUsuario() {
+            const nombre = prompt("Introduce el nombre completo a eliminar:");
+            if (usuarios.has(nombre)) {
+                usuarios.delete(nombre);
+                alert("Usuario eliminado.");
+            } else {
+                alert("Usuario no encontrado.");
+            }
+        }
+
+        function mostrarUsuarios() {
+            if (usuarios.size === 0) {
+                alert("No hay usuarios registrados.");
+            } else {
+                let mensaje = "Usuarios registrados:\n";
+                usuarios.forEach((contraseña, nombre)=> {
+                    mensaje += nombre + " - " + contraseña + "\n";
+                });
+                alert(mensaje);
+            }
+        }
+
+        function menu() {
+            let opcion;
+            do {
+                opcion = prompt("Menú:\n1. Añadir usuario\n2. Modificar usuario\n3. Eliminar usuario\n4. Mostrar usuarios\n5. Salir");
+                switch (opcion) {
+                    case "1":
+                        añadirUsuario();
+                        break;
+                    case "2":
+                        modificarUsuario();
+                        break;
+                    case "3":
+                        eliminarUsuario();
+                        break;
+                    case "4":
+                        mostrarUsuarios();
+                        break;
+                    case "5":
+                        alert("Saliendo del programa...");
+                        break;
+                    default:
+                        alert("Opción inválida.");
+                        break;
+                }
+            } while (opcion !== "5");
+        }
+
+        menu();
+    </script>
+</body>
+
+</html>
