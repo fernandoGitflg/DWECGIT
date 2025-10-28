@@ -99,4 +99,4 @@ console.log(array1.slice(3,7));//(4) [5, 6, 7, 8]
 
 console.log("Prueba Splice:");
 console.log(array1);
-console.log(array1.slice());
+console.log(array1.splice());//Elimina elementos desde la posicion que indicas y lo siguiente cuantso elementos

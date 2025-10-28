@@ -109,9 +109,7 @@ biblioteca.toString();
 
 let prestarLibro = (biblioteca, titulo) => {
     biblioteca.splice(
-        biblioteca.findIndex(libro => libro.nombre === titulo),
-        1
-    );
+        biblioteca.findIndex(libro => libro.nombre === titulo),1);
 }
 console.log("----");
 prestarLibro(biblioteca, "Lazarillo");
@@ -120,7 +118,7 @@ biblioteca.toString();
 console.log("Devolver");
 let devolverLibro = (biblioteca, libro) => {
     biblioteca.push(libro);
-    console.log("Libro \"" + libro.nombre + "\" devuelto a la biblioteca.");
+    console.log("Libro " + libro.nombre + " devuelto a la biblioteca.");
 };
 devolverLibro(biblioteca,libro3);
 biblioteca.toString();
