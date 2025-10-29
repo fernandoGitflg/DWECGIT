@@ -22,44 +22,54 @@ console.log(diasLaborales);
 diasLaborales.splice(0,2);
 console.log(diasLaborales);*/
 
-let sedes = ["", "Ayuntamiento", "Polideportivo", "Instituto", "Mercado", "Colegio"];
-let partido = ["PV", "OV", "VpSI", "UPV"];
-let tabla = [[], []];
+let sedes = ["Ayuntamiento", "Polideportivo", "Instituto", "Mercado", "Colegio"];
+let partidos = ["PV", "OV", "VPSI", "UPV"];
 
-let generarVotos = () => {
-  return Math.floor(Math.random() * 5.99) + 5;
-};
+let generarVotos = () => Math.floor(Math.random() * 5.99) + 5;
 
-tabla[0] = partido;
-for (let i = 0; i < partido.length; i++) {
-  let votosPorSede = [];
-  for (let j = 0; j < sedes.length; j++) {
-    votosPorSede.push(generarVotos());
+let tabla = [];
+
+tabla.push(["", ...sedes]);
+
+for (let partido of partidos) {
+  let fila = [partido];
+  for (let i = 0; i < sedes.length; i++) {
+    fila.push(generarVotos());
   }
-  tabla[1].push(votosPorSede);
+  tabla.push(fila);
 }
-
 console.log("Tabla de votos:");
-console.log(" ", sedes.slice(1).join(" | "));
-
-for (let i = 0; i < partido.length; i++) {
-  let fila = tabla[1][i].slice(1).join(" | ");
-  console.log(partido[i] + fila);
+for (let fila of tabla) {
+  console.log(fila.join(" | "));
 }
+
 let totales = [];
-for (let i = 0; i < partido.length; i++) {
+for (let i = 1; i < tabla.length; i++) {
   let suma = 0;
-  for (let j = 0; j < sedes.length; j++) {
-    suma += tabla[1][i][j];
+  for (let j = 1; j < tabla[i].length; j++) {
+    suma += tabla[i][j];
   }
   totales.push(suma);
 }
-let indicesOrdenados = totales
+console.log("\nTotal de votos por partido:");
+for (let i = 0; i < partidos.length; i++) {
+  console.log(partidos[i] + ": " + totales[i] + " votos");
+}
+console.log("\nTotal de votos por sede:");
+for (let j = 1; j < tabla[0].length; j++) {
+  let suma = 0;
+  for (let i = 1; i < tabla.length; i++) {
+    suma += tabla[i][j];
+  }
+  console.log(tabla[0][j] + ": " + suma + " votos");
+}
+
+let votosOrdenados = totales
   .map((votos, index) => index)
   .sort((a, b) => totales[b] - totales[a]);
 
-console.log("Recuento de votos por partido (ordenado):");
-for (let i = 0; i < indicesOrdenados.length; i++) {
-  let idx = indicesOrdenados[i];
-  console.log(partido[idx] + ": " + totales[idx] + " votos");
+console.log("\nRecuento de votos por partido (ordenado):");
+for (let i = 0; i < votosOrdenados.length; i++) {
+  let idx = votosOrdenados[i];
+  console.log(partidos[idx] + ": " + totales[idx] + " votos");
 }
