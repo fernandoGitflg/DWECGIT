@@ -1,48 +1,48 @@
-class Vehiculo{
-    constructor(pasajeros){
-        this._pasajeros=pasajeros;
+class Vehiculo {
+    constructor(pasajeros) {
+        this._pasajeros = pasajeros;
     }
-    set pasajeros(valor){
-        this._pasajeros=valor;//_ para evitar bucle infinito
+    set pasajeros(valor) {
+        this._pasajeros = valor;
     }
-    get pasajeros(){
+    get pasajeros() {
         return this._pasajeros;
     }
 }
-class Turismo extends Vehiculo{
-    constructor(pasajeros,color){
-        super(pasajeros)
-        this._color=color;
+
+class Turismo extends Vehiculo {
+    constructor(pasajeros, color) {
+        super(pasajeros);
+        this._color = color;
     }
-    set color(valor){
-        this._color=valor;//_ para evitar bucle infinito
+    set color(valor) {
+        this._color = valor;
     }
-    get color(){
+    get color() {
         return this._color;
     }
 }
-class Camion extends Vehiculo{
-    constructor(pasajeros,tara){
-        super(pasajeros)
-        this._tara=tara;
+
+class Camion extends Vehiculo {
+    constructor(pasajeros, tara) {
+        super(pasajeros);
+        this._tara = tara;
     }
-    set tara(valor){
-        this._tara=valor;//_ para evitar bucle infinito
+    set tara(valor) {
+        this._tara = valor;
     }
-    get tara(){
+    get tara() {
         return this._tara;
     }
 }
 
-function capturaReloj(){
+function capturaReloj() {
     const ahora = new Date();
-    return ahora.getHours()+':'+ahora.getMinutes()+':'+ahora.getSeconds();
+    return ahora.getHours() + ':' + ahora.getMinutes() + ':' + ahora.getSeconds();
 }
-let ale1= Math.floor((Math.random()*3.99)+1);//entre 1 y 4
-const ale2= Math.floor(Math.random()*9999);//tara
-const ale3= Math.floor((Math.random()*6.99)+1);//pasajeros
-function generarColor() {//color
-    const ale4 = Math.floor(Math.random() * 2.99);
+
+function generarColor() {
+    const ale4 = Math.floor(Math.random() * 3);
     let color;
     switch (ale4) {
         case 0:
@@ -57,17 +57,56 @@ function generarColor() {//color
     }
     return color;
 }
-let vehiculos=[];
-function generarVehiculos(){
-    for(let i=1;i<=ale1;i++){
-        let turismo=new Turismo(ale3,generarColor());
+
+let vehiculos = [];
+
+function generarVehiculos() {
+    let ale1 = Math.floor(Math.random() * 4) + 1;
+    for (let i = 0; i < ale1; i++) {
+        const pasajeros = Math.floor(Math.random() * 7) + 1;
+        let turismo = new Turismo(pasajeros, generarColor());
         vehiculos.push(turismo);
     }
-    ale1=Math.floor((Math.random()*3.99)+1);//entre 1 y 4 de nuevo
-    for(let i=1;i<=ale1;i++){
-        let camion=new Camion(ale3,ale2);
+
+    ale1 = Math.floor(Math.random() * 4) + 1;
+    for (let i = 0; i < ale1; i++) {
+        const pasajeros = Math.floor(Math.random() * 7) + 1;
+        const tara = Math.floor(Math.random() * 10000);
+        let camion = new Camion(pasajeros, tara);
         vehiculos.push(camion);
     }
 }
-generarVehiculos();
-console.log('hola');
+
+function mostrarVehiculos() {
+    let contador = 0;
+    const id = setInterval(function () {
+        const inicio = vehiculos.length;
+        generarVehiculos();
+        const nuevos = vehiculos.slice(inicio);
+        const hora = capturaReloj();
+
+        nuevos.forEach(v => {
+            if (v instanceof Turismo) {
+                document.write(
+                    "Hora: " + hora +
+                    " - Tipo: Turismo" +
+                    " - Pasajeros: " + v.pasajeros +
+                    " - Color: " + v.color + "<br>"
+                );
+            } else if (v instanceof Camion) {
+                document.write(
+                    "Hora: " + hora +
+                    " - Tipo: Camión" +
+                    " - Pasajeros: " + v.pasajeros +
+                    " - Tara: " + v.tara + "<br>"
+                );
+            }
+        });
+
+        if (++contador === 10) {
+            clearInterval(id);
+        }
+    }, 2000);
+}
+
+mostrarVehiculos();
