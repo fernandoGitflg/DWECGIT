@@ -21,7 +21,8 @@ for (let tipo of tipos) {
 }
 
 function colocarPieza(figura, tablero) {
-    let x, y;
+    let x;
+    let y;
     while (true) {
         x = Math.floor(Math.random() * 7.99);
         y = Math.floor(Math.random() * 7.99);

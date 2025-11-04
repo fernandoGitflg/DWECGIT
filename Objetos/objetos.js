@@ -136,3 +136,4 @@ Persona.prototype.visualizarr=function(){
 const persona6= new Persona('Juan',40);
 persona5.visualizarr();
 console.log(persona6);
+
