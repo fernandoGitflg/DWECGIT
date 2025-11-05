@@ -37,12 +37,12 @@ class Camion extends Vehiculo {
 }
 
 function capturaReloj() {
-    const ahora = new Date();
+    let ahora = new Date();
     return ahora.getHours() + ':' + ahora.getMinutes() + ':' + ahora.getSeconds();
 }
 
 function generarColor() {
-    const ale4 = Math.floor(Math.random() * 3);
+    let ale4 = Math.floor(Math.random() * 3);
     let color;
     switch (ale4) {
         case 0:
@@ -63,15 +63,15 @@ let vehiculos = [];
 function generarVehiculos() {
     let ale1 = Math.floor(Math.random() * 4) + 1;
     for (let i = 0; i < ale1; i++) {
-        const pasajeros = Math.floor(Math.random() * 7) + 1;
+        let pasajeros = Math.floor(Math.random() * 7) + 1;
         let turismo = new Turismo(pasajeros, generarColor());
         vehiculos.push(turismo);
     }
 
     ale1 = Math.floor(Math.random() * 4) + 1;
     for (let i = 0; i < ale1; i++) {
-        const pasajeros = Math.floor(Math.random() * 7) + 1;
-        const tara = Math.floor(Math.random() * 10000);
+        let pasajeros = Math.floor(Math.random() * 7) + 1;
+        let tara = Math.floor(Math.random() * 10000);
         let camion = new Camion(pasajeros, tara);
         vehiculos.push(camion);
     }
@@ -80,10 +80,10 @@ function generarVehiculos() {
 function mostrarVehiculos() {
     let contador = 0;
     const id = setInterval(function () {
-        const inicio = vehiculos.length;
+        let inicio = vehiculos.length;
         generarVehiculos();
-        const nuevos = vehiculos.slice(inicio);
-        const hora = capturaReloj();
+        let nuevos = vehiculos.slice(inicio);
+        let hora = capturaReloj();
 
         nuevos.forEach(v => {
             if (v instanceof Turismo) {
