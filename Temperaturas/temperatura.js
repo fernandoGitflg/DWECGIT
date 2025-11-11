@@ -1,7 +1,10 @@
 class Ciudad {
+  #nombre;
+  #temperaturas;
+
   constructor(nombre) {
-    this.nombre = nombre;
-    this.temperaturas = [];
+    this.#nombre = nombre;
+    this.#temperaturas = [];
     this.rellenarTemperaturas();
   }
 
@@ -11,60 +14,77 @@ class Ciudad {
 
   rellenarTemperaturas() {
     for (let i = 0; i < 30; i++) {
-      this.temperaturas.push(this.generarTemperatura());
+      this.#temperaturas.push(this.generarTemperatura());
     }
   }
 
   modificarTemperatura(dia, nuevaTemp) {
     if (dia >= 1 && dia <= 30) {
-      this.temperaturas[dia - 1] = nuevaTemp;
+      this.#temperaturas[dia - 1] = nuevaTemp;
     }
   }
 
   calcularMedia() {
     let suma = 0;
-    for (let i = 0; i < this.temperaturas.length; i++) {
-      suma += this.temperaturas[i];
+    for (let i = 0; i < this.#temperaturas.length; i++) {
+      suma += this.#temperaturas[i];
     }
-    return Math.round(((suma / this.temperaturas.length) * 100) / 100);
+    return Math.round(((suma / this.#temperaturas.length) * 100) / 100);
+  }
+
+  get nombre() {
+    return this.#nombre;
+  }
+
+  get temperaturas() {
+    return this.#temperaturas;
   }
 }
 
-class Estaciones {
+class Estacion {
+  #ciudades;
+
   constructor() {
-    this.ciudades = [];
+    this.#ciudades = [];
   }
 
   agregarCiudad(nombre) {
-    this.ciudades.push(new Ciudad(nombre));
+    this.#ciudades.push(new Ciudad(nombre));
   }
 
   eliminarCiudad(nombre) {
-    this.ciudades = this.ciudades.filter(c => c.nombre !== nombre);
+    this.#ciudades = this.#ciudades.filter(c => c.nombre !== nombre);
+  }
+
+  modificarTemperatura(nombreCiudad, dia, nuevaTemp) {
+    const ciudad = this.#ciudades.find(c => c.nombre === nombreCiudad);
+    if (ciudad) {
+      ciudad.modificarTemperatura(dia, nuevaTemp);
+    }
   }
 
   toHTML() {
-    let html = "<table border='1'><tr><th>Ciudad</th>";
+    let html = "<table border='1'><tr><th></th>";
     for (let i = 1; i <= 30; i++) {
       html += `<th>${i}</th>`;
     }
-    html += "<th>Mediaaa</th></tr>";
+    html += "<th>Media</th></tr>";
 
-    for (let ciudad of this.ciudades) {
+    for (let ciudad of this.#ciudades) {
       html += `<tr><td>${ciudad.nombre}</td>`;
-      for (let temp of ciudad.temperaturas) {
-        html += `<td>${temp}</td>`;
+      for (let temperatura of ciudad.temperaturas) {
+        html += `<td>${temperatura}</td>`;
       }
       html += `<td>${ciudad.calcularMedia()}</td></tr>`;
     }
 
-    html += "</table>";
+    html += `</table>`;
     return html;
   }
 }
 
-const estaciones = new Estaciones();
-estaciones.agregarCiudad("Oviedo");
-estaciones.agregarCiudad("Santander");
-
-document.write(estaciones.toHTML());
+const estacion1 = new Estacion();
+estacion1.agregarCiudad("Oviedo");
+estacion1.agregarCiudad("Santander");
+estacion1.modificarTemperatura("Oviedo", 2, 25);
+document.write(estacion1.toHTML());
