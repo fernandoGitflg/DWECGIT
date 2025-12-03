@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>dom_04 - Ejercicio: Obtener la etiqueta que aparece más veces</h1>
+    <hr id="linea1" />
+    <p id="parrafo1">Primer párrafo</p>
+    <p id="parrafo2">Segundo párrafo</p>
+    <p id="parrafo3">Tercer párrafo</p>
+    <p id="parrafo4">Cuarto párrafo</p>
+    <p id="parrafo5">Quinto párrafo</p>
+    <p id="parrafo6">Sexto párrafo</p>
+    <p id="parrafo7">Séptimo párrafo</p>
+    <p id="parrafo8">Octavo párrafo</p>
+    <p id="parrafo9">Noveno párrafo</p>
+    <p id="parrafo10">Décimo párrafo</p>
+    <hr id="linea2" />
+    <button onclick="mostrarInformacion();" id="boton1">Mostrar información</button>
+    <script>
+        function mostrarInformacion() {
+            const nodos = document.getElementsByTagName("*");
+            const mapa = new Map();
+
+            for (let i = 0; i < nodos.length; i++) {
+                const etiqueta = nodos[i].tagName.toLowerCase();
+                if (mapa.has(etiqueta)) {
+                    mapa.set(etiqueta, mapa.get(etiqueta) + 1);
+                } else {
+                    mapa.set(etiqueta, 1);
+                }
+            }
+
+            let etiquetaMax = "";
+            let max = 0;
+            for (let [etiqueta, cantidad] of mapa.entries()) {
+                if (cantidad > max) {
+                    max = cantidad;
+                    etiquetaMax = etiqueta;
+                }
+            }
+
+            alert(`La etiqueta que más se repite es <${etiquetaMax}> con ${max} apariciones.`);
+        }
+    </script>
+</body>
+
+</html>

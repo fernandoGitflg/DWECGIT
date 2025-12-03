@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="principal" style="border:solid 1px black;
+        height:300px; width:700px; margin:0 auto; background:orange;">
+        <script>
+            const mensajes = [
+                "Tu mejor coche es un haiga",
+                "La gente feliz toma loca-loca",
+                "Tomate una sidra El manzanal",
+                "Pepedona tu mejor supermercado",
+                "Pepinillos Perico Perico Perez",
+                "Ofertón de jabon 12 por 2"
+            ];
+
+            function generarColor() {
+                const r = Math.floor(Math.random() * 255.99);
+                const g = Math.floor(Math.random() * 255.99);
+                const b = Math.floor(Math.random() * 255.99);
+                return `rgb(${r},${g},${b})`;
+            }
+
+            function generarPosicion() {
+                const left = Math.floor(Math.random() * 600);
+                return left ;
+            }
+
+            function crearMensajes() {
+                const principal = document.getElementById("principal")
+                principal.innerHTML = "";
+
+                mensajes.forEach(mensaje => {
+                    let estilo=`width:100px; border:solid 1px black;position:relative;
+                        left:${generarPosicion()}px;background-color:${generarColor()}`;
+                    const c1 = document.createElement("DIV");
+                    c1.textContent = mensaje;
+                    c1.setAttribute("style",estilo);
+                    principal.appendChild(c1)
+                })
+            }
+
+            setInterval(crearMensajes, 1000);
+        </script>
+    </div>
+</body>
+
+</html>

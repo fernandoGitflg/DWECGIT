@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom_18 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click</title>
+    <style>
+        .claseAzul {
+            color: blue;
+        }
+
+        .claseArial {
+            font-family: Arial;
+        }
+
+
+        .claseSize {
+            font-size: 28px;
+        }
+
+
+        .claseTexto {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>dom_18 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click</h1>
+    <hr />
+    <p class="claseAzul" onclick="ponerClase(this);">Primer párrafo</p>
+    <p class="claseArial" onclick="ponerClase(this);">Segundo párrafo</p>
+    <p class="claseSize" onclick="ponerClase(this);">Tercer párrafo</p>
+    <p class="claseTexto" onclick="ponerClase(this);">Cuarto párrafo</p>
+    <hr />
+    <div>Texto que está dentro de un DIV de prueba</div>
+    <button onclick="quitarClase();">Quitar clase</button>
+    <script>
+        function ponerClase(parrafo) {
+            parrafo.classList.forEach(clase => div.classList.add(clase));
+        }
+        function quitarClase() {
+            document.querySelector("DIV").removeAttribute("class");
+        }
+    </script>
+</body>
+
+</html>

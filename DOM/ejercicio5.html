@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom_18 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click</title>
+    <style>
+        .claseAzul {
+            color: blue;
+        }
+
+        .claseArial {
+            font-family: Arial;
+        }
+
+
+        .claseSize {
+            font-size: 28px;
+        }
+
+
+        .claseTexto {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>dom_18 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click y si se vuelve a hacer click quitarlas</h1>
+    <hr />
+    <p class="claseAzul" onclick="controlClase(this);">Primer párrafo</p>
+    <p class="claseArial" onclick="controlClase(this);">Segundo párrafo</p>
+    <p class="claseSize" onclick="controlClase(this);">Tercer párrafo</p>
+    <p class="claseTexto" onclick="controlClase(this);">Cuarto párrafo</p>
+    <hr />
+    <div>Texto que está dentro de un DIV de prueba</div>
+    <script>
+        function controlClase(parrafo) {
+            parrafo.classList.forEach(clase => div.classList.add(clase));
+        }
+    </script>
+</body>
+
+</html>
