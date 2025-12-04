@@ -28,7 +28,8 @@
 </head>
 
 <body>
-    <h1>dom_18 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click y si se vuelve a hacer click quitarlas</h1>
+    <h1>dom_19 - Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click y si se
+        vuelve a hacer click quitarlas</h1>
     <hr />
     <p class="claseAzul" onclick="controlClase(this);">Primer párrafo</p>
     <p class="claseArial" onclick="controlClase(this);">Segundo párrafo</p>
@@ -38,7 +39,14 @@
     <div>Texto que está dentro de un DIV de prueba</div>
     <script>
         function controlClase(parrafo) {
-            parrafo.classList.forEach(clase => div.classList.add(clase));
+            const div = document.querySelector("DIV");
+            parrafo.classList.forEach(clase => {
+                if (div.classList.contains(clase)) {
+                    div.classList.remove(clase);
+                } else {
+                    div.classList.add(clase);
+                }
+            });
         }
     </script>
 </body>
