@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 4</title>
+  <style>
+    img {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+    .asterisco {
+      position: absolute;
+      color: black;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="reloj.jpg" alt="Reloj">
+
+  <script>
+    const reloj = document.getElementsByTagName("img")[0];
+    document.addEventListener('mousemove', function(event) {
+      reloj.style.left = event.clientX + 'px';
+      reloj.style.top = event.clientY + 'px';
+    });
+
+    document.addEventListener('click', function(event) {
+      const asterisco = document.createElement('span');
+      asterisco.className = 'asterisco';
+      asterisco.textContent = '*';
+      asterisco.style.left = event.clientX + 'px';
+      asterisco.style.top = event.clientY + 'px';
+      document.body.appendChild(asterisco);
+    });
+  </script>
+</body>
+</html>
