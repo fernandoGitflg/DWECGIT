@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FCT SmartTrack - Login</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white min-h-screen flex flex-col antialiased transition-colors duration-200">
+<!-- Main Container -->
+<div class="relative flex min-h-screen w-full flex-col justify-center items-center p-6 overflow-hidden">
+<!-- Subtle Background Decoration -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -left-[10%] w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-[100px]"></div>
+</div>
+<!-- Login Card -->
+<div class="relative w-full max-w-[440px] flex flex-col gap-8 bg-white dark:bg-[#1A2633] p-8 md:p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-[#2a3b4d]">
+<!-- Branding Header -->
+<div class="flex flex-col gap-2 items-center text-center">
+<!-- Logo Icon -->
+<div class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-2">
+<span class="material-symbols-outlined text-[32px]">school</span>
+</div>
+<h1 class="text-[#111418] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">
+                    FCT SmartTrack
+                </h1>
+<p class="text-[#617589] dark:text-[#94a3b8] text-base font-normal leading-normal">
+                    Gestión de FCT y profesores
+                </p>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col gap-5 w-full">
+<!-- Username Input -->
+<label class="flex flex-col w-full gap-2 group">
+<p class="text-[#111418] dark:text-gray-200 text-sm font-semibold leading-normal">Usuario</p>
+<div class="relative flex items-center">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 border border-[#dbe0e6] dark:border-[#334155] bg-white dark:bg-[#111a22] focus:border-primary h-12 placeholder:text-[#617589] px-4 text-base font-normal leading-normal transition-all" placeholder="usuario@ejemplo.com" type="text" value=""/>
+</div>
+</label>
+<!-- Password Input -->
+<label class="flex flex-col w-full gap-2 group">
+<div class="flex justify-between items-center w-full">
+<p class="text-[#111418] dark:text-gray-200 text-sm font-semibold leading-normal">Contraseña</p>
+</div>
+<div class="flex w-full items-stretch rounded-lg relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-r-none text-[#111418] dark:text-white focus:outline-none focus:ring-0 z-10 border border-[#dbe0e6] dark:border-[#334155] bg-white dark:bg-[#111a22] focus:border-primary focus:border-r h-12 placeholder:text-[#617589] px-4 border-r-0 text-base font-normal leading-normal transition-colors" placeholder="Introduce tu contraseña" type="password" value=""/>
+<div class="text-[#617589] dark:text-[#94a3b8] flex border border-[#dbe0e6] dark:border-[#334155] bg-white dark:bg-[#111a22] items-center justify-center px-3 rounded-r-lg border-l-0 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#1e2936] transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+</div>
+</label>
+<div class="flex justify-end w-full -mt-2">
+<a class="text-primary text-sm font-medium hover:text-blue-600 transition-colors" href="#">¿Olvidaste tu contraseña?</a>
+</div>
+<!-- Submit Button -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary hover:bg-blue-600 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-sm hover:shadow-md mt-2">
+<span class="truncate">Iniciar Sesión</span>
+</button>
+</form>
+<!-- Footer -->
+<div class="text-center pt-2">
+<p class="text-[#617589] dark:text-[#94a3b8] text-sm">
+                    ¿No tienes acceso? <a class="text-primary font-semibold hover:underline" href="#">Contacta al administrador</a>
+</p>
+</div>
+</div>
+<!-- Copyright -->
+<div class="absolute bottom-6 text-[#94a3b8] text-xs font-normal">
+            © 2024 FCT SmartTrack. Todos los derechos reservados.
+        </div>
+</div>
+</body></html>
