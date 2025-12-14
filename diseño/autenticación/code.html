@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Autenticación - FCT SmartTrack</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen flex flex-col justify-center items-center p-4 selection:bg-primary/20 selection:text-primary">
+<!-- Main Authentication Card -->
+<div class="w-full max-w-[440px] bg-white dark:bg-[#1A232E] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-800 overflow-hidden relative group/design-root">
+<!-- Decorative Top Bar -->
+<div class="h-1.5 w-full bg-primary"></div>
+<!-- Header Section -->
+<div class="pt-10 pb-2 px-8 text-center flex flex-col items-center">
+<!-- Logo Icon Placeholder (Abstract/Icon) -->
+<div class="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-primary">
+<span class="material-symbols-outlined text-[32px]">school</span>
+</div>
+<h1 class="text-[#0d131b] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em] mb-2">
+                FCT SmartTrack
+            </h1>
+<p class="text-[#4c6c9a] dark:text-slate-400 text-base font-normal leading-normal max-w-[280px]">
+                Gestión de Prácticas - Ciclos Formativos
+            </p>
+</div>
+<!-- Form Section -->
+<div class="p-8 pt-6">
+<form class="flex flex-col gap-5">
+<!-- Usuario Input -->
+<div class="flex flex-col gap-2">
+<label class="text-[#0d131b] dark:text-slate-200 text-sm font-medium leading-normal ml-1" for="email">
+                        Usuario
+                    </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-[#4c6c9a] pointer-events-none select-none text-[20px]">person</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d131b] dark:text-white border border-[#cfd9e7] dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 h-12 pl-11 pr-4 placeholder:text-[#4c6c9a] text-base font-normal leading-normal focus:outline-0 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200" id="email" placeholder="ej. profesor@centro.edu" type="email" value=""/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center ml-1">
+<label class="text-[#0d131b] dark:text-slate-200 text-sm font-medium leading-normal" for="password">
+                            Contraseña
+                        </label>
+</div>
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-4 text-[#4c6c9a] pointer-events-none select-none text-[20px]">lock</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d131b] dark:text-white border border-[#cfd9e7] dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 h-12 pl-11 pr-12 placeholder:text-[#4c6c9a] text-base font-normal leading-normal focus:outline-0 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200" id="password" placeholder="••••••••" type="password" value=""/>
+<button class="absolute right-0 top-0 h-full w-12 flex items-center justify-center text-[#4c6c9a] hover:text-primary transition-colors cursor-pointer rounded-r-lg focus:outline-none focus:text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-2">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary hover:bg-[#115ecb] active:bg-[#0f54b5] text-white text-base font-bold leading-normal tracking-[0.015em] shadow-sm transition-all duration-200 focus:ring-4 focus:ring-primary/30 outline-none" type="button">
+<span class="truncate">Iniciar Sesión</span>
+</button>
+</div>
+<!-- Helper Links -->
+<div class="flex flex-col items-center gap-2 mt-1">
+<a class="text-[#4c6c9a] hover:text-primary text-sm font-normal leading-normal underline transition-colors" href="#">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+</div>
+</form>
+</div>
+<!-- Footer Info -->
+<div class="bg-slate-50 dark:bg-slate-800/50 py-4 px-6 text-center border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center gap-2 text-xs text-[#4c6c9a] font-medium">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>Acceso Seguro • v1.2.0</span>
+</div>
+</div>
+</div>
+</body></html>

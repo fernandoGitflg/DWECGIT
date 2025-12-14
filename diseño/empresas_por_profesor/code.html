@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FCT SmartTrack - Empresas por Profesor</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-72 bg-white dark:bg-[#1A2332] border-r border-slate-200 dark:border-slate-800 flex flex-col h-screen shrink-0 sticky top-0 z-50">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-tight">FCT SmartTrack</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Panel de Administración</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">domain</span>
+<span class="text-sm font-medium">Gestión de empresas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-primary dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">supervisor_account</span>
+<span class="text-sm font-medium">Empresas por profesor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-3 py-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
+<img class="object-cover w-full h-full" data-alt="Admin user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYKaX3PN7a1jl8uEXcgXUEBStpcEji6YXMtJAldt6eCxRBx-jDBvoB-NqWopD2qFK7h4Ysnre9Z2g2zRPAkrOQygTpOYTWomHhcWJM7zK-GvGxmP-XWvZc1H1-BSJLyKjRD3w7lu1LF96QHsWLwCucynHDoHCCcKWpmTLRPolHNTxQUJaaWaacnLZB1S4N_qrpYI4kB2bHzpl5sMLAWDGPwaOmqiVMcPfZdU4aMACaJO8wnGkvAdVgBBZsEQFPMENbyxig6MSm77E"/>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Admin Principal</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">admin@fcttrack.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- Header & Filters Sticky Area -->
+<div class="bg-background-light dark:bg-background-dark z-10 sticky top-0 px-8 py-6 pb-2">
+<div class="max-w-5xl mx-auto flex flex-col gap-6">
+<!-- Breadcrumb / Header -->
+<div class="flex flex-col gap-1">
+<h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">Empresas por Profesor</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base">Supervisa la carga de trabajo y asignaciones de prácticas por tutor.</p>
+</div>
+<!-- Controls -->
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+<!-- Search Bar -->
+<div class="relative w-full md:max-w-md">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="w-full h-11 pl-10 pr-4 rounded-xl border-none bg-white dark:bg-[#1A2332] text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary shadow-sm text-sm" placeholder="Buscar por nombre de profesor..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-sm shadow-primary/30 transition-all hover:bg-primary/90">
+                            Todos
+                        </button>
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A2332] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                            IES Politécnico
+                        </button>
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A2332] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                            CIFP César Manrique
+                        </button>
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A2332] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                            IES Teobaldo Power
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-8 pb-10 pt-4">
+<div class="max-w-5xl mx-auto flex flex-col gap-6">
+<!-- Teacher Card 1 -->
+<section class="bg-white dark:bg-[#1A2332] rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-700 flex flex-wrap justify-between items-center gap-4 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Portrait of Maria Garcia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSowNqqr_T5hgKtAru4_s2i7hE41ivZPyR9wgkR4MuPwwfNqMG65Xd3i33atb41dXNd4Gi--1gcDl7PYPUXuB-gJd3yz3eEtqHs8UyTYC7Pn5ulb3bw1GFXnrGV8XgwLtaiyEql9-nvNoXbwbUKFj_GklNVXi78Y8qNDTq3oPKSZ0DS1UBMwrhoJHqSHTWaNNl3Jy8jSScPPz76Oa0qfEKQ453M3xs7HGEqyV7IJl3AWIhasS-0wgR9kiKs0s0kXm7MMeYNUUY5vs"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-700 rounded-full"></div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">María García</h3>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>IES Politécnico</span>
+<span class="text-slate-300 dark:text-slate-600">•</span>
+<span class="text-primary font-medium">3 Empresas asignadas</span>
+</div>
+</div>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary/80 flex items-center gap-1">
+                            Ver perfil
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<!-- Company Row 1 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg">
+                                    T
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">TechSolutions S.L.</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Desarrollo Web • DAW</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Activo
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+<!-- Company Row 2 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">
+                                    I
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">Innovatech Canarias</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Sistemas • ASIR</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Activo
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+<!-- Company Row 3 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-lg">
+                                    G
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">Global Net Services</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Redes • SMR</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                                    Pendiente Firma
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Teacher Card 2 -->
+<section class="bg-white dark:bg-[#1A2332] rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-700 flex flex-wrap justify-between items-center gap-4 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Portrait of Juan Perez" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoKZAILFdr71_qZ20TAMzLFag-EFopUKB4Fm4WUGetlhL6x4DoUMwl2ORDn3qdb8p5Ll9iXeDGrLadomADFVOGTWmCivhkFoXX1ChNBOv4kTozxzSDqfIZWAUj_7zAQ5cYrXu35ycsyNxtxCg9a6d78C30pIRhJ8GgRPzpuLgQzT9YK1g2p4Ao9YboVpvxol46Tx3cgVv5K_mM2OwWGBS-OFYKmDmhe6ahTuglbDdPzx5YeSZUvFuDjVvyBwpfKMzCKdI_RKJZBg4"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-gray-300 border-2 border-white dark:border-slate-700 rounded-full"></div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Juan Pérez</h3>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>CIFP César Manrique</span>
+<span class="text-slate-300 dark:text-slate-600">•</span>
+<span class="text-primary font-medium">2 Empresas asignadas</span>
+</div>
+</div>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary/80 flex items-center gap-1">
+                            Ver perfil
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<!-- Company Row 1 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">
+                                    S
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">SoftCanarias</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Desarrollo App • DAM</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Activo
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+<!-- Company Row 2 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-lg">
+                                    D
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">DataCloud Systems</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Cloud Computing • ASIR</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                    Incidencia
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Teacher Card 3 -->
+<section class="bg-white dark:bg-[#1A2332] rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-700 flex flex-wrap justify-between items-center gap-4 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-lg border-2 border-white dark:border-slate-700 shadow-sm">
+                                    LR
+                                </div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-700 rounded-full"></div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Laura Rodríguez</h3>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>IES Teobaldo Power</span>
+<span class="text-slate-300 dark:text-slate-600">•</span>
+<span class="text-primary font-medium">1 Empresa asignada</span>
+</div>
+</div>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary/80 flex items-center gap-1">
+                            Ver perfil
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<!-- Company Row 1 -->
+<div class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-lg">
+                                    W
+                                </div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-medium group-hover:text-primary transition-colors">WebDesign Tenerife</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Diseño • DAW</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Activo
+                                </span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Pagination -->
+<div class="flex justify-center pt-4 pb-8">
+<button class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                        Cargar más profesores
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Empresas - FCT SmartTrack</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+            font-size: 24px;
+        }
+        /* Custom scrollbar for sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d131b] dark:text-white font-display antialiased h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<aside class="w-72 bg-white dark:bg-[#151f2e] border-r border-slate-200 dark:border-slate-800 flex-col hidden md:flex h-full shadow-sm z-10">
+<div class="p-6 pb-2">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#0d131b] dark:text-white text-xl font-bold leading-normal tracking-tight">FCT SmartTrack</h1>
+<p class="text-[#4c6c9a] dark:text-slate-400 text-xs font-normal leading-normal">Panel de Administración</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 sidebar-scroll">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 border-l-4 border-primary group transition-all" href="#">
+<span class="material-symbols-outlined text-primary">domain</span>
+<p class="text-primary text-sm font-semibold leading-normal">Gestión de empresas</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 border-l-4 border-transparent text-[#4c6c9a] dark:text-slate-400 hover:text-[#0d131b] dark:hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium leading-normal">Empresas por profesor</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 border-l-4 border-transparent text-[#4c6c9a] dark:text-slate-400 hover:text-[#0d131b] dark:hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Configuración</p>
+</a>
+</div>
+<div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 px-3">
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="User avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs_RCB3TcFTLVKCEANn2lB1kg-tgBCyOKqeC2I-ASDqPxDhR78vPSc0R6edC3EF7DpYsYiRrxu_s3Z13pUL2RT9LSGOuFaskCEZCUpf9er6p9M0BmdaBvGU7kJHzNSgX4_jLlVgJUr2VNogannxvOwD_NEyzpeOs5TZDP66rM6HJ-W3RvX5dBguTefNbvA5bwqT3aWu7bpRSybqu0viPu3DWaHsfkPZJ-mogFe5OsxK0LCC5Wih5VyUaDMQpdmYtZbe4wTJIN43QM"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#0d131b] dark:text-white">Admin User</span>
+<span class="text-xs text-[#4c6c9a] dark:text-slate-400">Coordinador FCT</span>
+</div>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 h-full overflow-y-auto relative flex flex-col">
+<!-- Header Section -->
+<header class="bg-white dark:bg-[#151f2e] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-20">
+<div class="max-w-7xl mx-auto px-6 py-6">
+<!-- Page Heading Component -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div class="flex flex-col gap-1">
+<h2 class="text-[#0d131b] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Gestión de Empresas</h2>
+<p class="text-[#4c6c9a] dark:text-slate-400 text-sm md:text-base font-normal">Listado de empresas y gestión de plazas para ciclos formativos.</p>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary hover:bg-blue-600 text-white text-sm font-bold shadow-md shadow-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Añadir Empresa</span>
+</button>
+</div>
+<!-- Search and Action Row -->
+<div class="flex flex-col lg:flex-row gap-4">
+<!-- SearchBar Component -->
+<div class="flex-1">
+<label class="flex flex-col w-full h-12">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-sm">
+<div class="text-[#4c6c9a] dark:text-slate-400 flex bg-white dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border border-r-0 border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#0d131b] dark:text-white focus:outline-0 focus:ring-0 bg-white dark:bg-slate-800 h-full placeholder:text-[#4c6c9a] dark:placeholder:text-slate-500 px-4 rounded-r-lg border border-l-0 border-slate-200 dark:border-slate-700 text-base font-normal leading-normal transition-all focus:border-primary focus:border-l" placeholder="Buscar por nombre, CIF, dirección..." value=""/>
+</div>
+</label>
+</div>
+<!-- ActionPanel Component (Compact) -->
+<div class="flex items-center justify-between gap-4 rounded-lg border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 px-4 h-12 shadow-sm min-w-[280px]">
+<p class="text-[#0d131b] dark:text-slate-200 text-sm font-medium leading-tight">Solo empresas sin asignar</p>
+<label class="relative flex h-[24px] w-[44px] cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-slate-600 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors">
+<div class="h-[20px] w-[20px] rounded-full bg-white shadow-sm"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Chips Component -->
+<div class="flex gap-2 pt-4 flex-wrap overflow-x-auto pb-1 scrollbar-hide">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white pl-4 pr-3 text-sm font-medium shadow-sm ring-1 ring-primary/20">
+<span>Ciclo: Todos</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-[#0d131b] dark:text-slate-200 pl-4 pr-3 text-sm font-medium transition-colors">
+<span>Estado: Todos</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<div class="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1 self-center"></div>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-100 dark:border-red-900/30 px-3 text-xs font-medium hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors">
+<span>Sin contactar</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-100 dark:border-orange-900/30 px-3 text-xs font-medium hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors">
+<span>Contactada</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border border-green-100 dark:border-green-900/30 px-3 text-xs font-medium hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors">
+<span>Conectada</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Grid -->
+<div class="flex-1 p-6 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1: Conectada -->
+<article class="flex flex-col bg-white dark:bg-[#151f2e] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="TechSolutions Logo" class="w-full h-full object-cover" data-alt="Company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqcQxRJw-xMqjUbPczLr44ZxCNRHtr3d_25_A_jaYSWt196IlNhBnq-aJw5GlZ212cq-9koKcTD0STDm2Ho3KlPr8gJGrj0XYYGgrs7ZuBrmEfwnArI_Y6gS-PvB-h4UxJSD6uNa_F6jeV0-nrskT3lTRDIuFNDY6bUpS9QkILhiN87crJ-2GM-nNdZYXLE_cgiEIDAveq-sg6Nw86vX6G7LJbtDnwl5wPLytfe6o5jSK3nl4cuDpiPFg0ldaQAfiOrcyZTMmBijI"/>
+</div>
+<div>
+<h3 class="text-[#0d131b] dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">TechSolutions S.L.</h3>
+<div class="flex items-center gap-1 mt-1 text-[#4c6c9a] dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span data-location="Madrid">Parque Tecnológico, Madrid</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-[#0d131b] dark:hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-900/50">
+<span class="w-1.5 h-1.5 mr-1.5 bg-green-500 rounded-full"></span>
+                                Conectada
+                            </span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+<div class="flex flex-col gap-2">
+<p class="text-xs font-semibold text-[#4c6c9a] dark:text-slate-500 uppercase tracking-wider">Ciclos Solicitados</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">DAW</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">DAM</span>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-7 h-7 rounded-full border-2 border-white dark:border-[#151f2e]" data-alt="Student avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDikCQmJ619T-SHso-B1eFjvPr-rEUuJebFFmJJzFcXnVluN4TSPuNNdL89xyj5T-j-WA4dagDV3YnjjW1cOHNLjDHgkusKu7OpHyuMs8Oc7W_r3-y4-bbVLZhlBlq7EY6fbGAptzOZZyq4Vl1u40rjLhup0db8VKTblH9Exxgkowjrmw6D0ZiEQAJ1YUYaI9Wl4cQjLNGlcAjYE3f4sOoU45MuSX0R6pH6KsO-QgIKcQOO8v4f1lCNS3ga3UsA8wDovCu-RssK8u0"/>
+<img alt="Student" class="w-7 h-7 rounded-full border-2 border-white dark:border-[#151f2e]" data-alt="Student avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEcwv_5Np_PyKOo5Qe_ckBhf9caNOEZW2FD1shSd79rDKzVUvI8xKDG7vLNMAqU1PkWO2H9a8rfpocUEnchQFf3x6KwcH3O9VqF8f576d86s7eGqiOWB_wf8rR9eQAE14Sl9NCZUXUIt2B20n_OlC5uriX3b6AwoSYeJE9aav-T8zlMQdJl00iSRIElpCCFcprUAp0anPPI_n03yj_Udx6kfggAU3uZtV85pvFnwjHqQRjOaGT8mwaq3sPCDwIB56yyvnCUwc9wJE"/>
+<div class="w-7 h-7 rounded-full border-2 border-white dark:border-[#151f2e] bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500 dark:text-slate-300">+1</div>
+</div>
+<span class="text-xs text-[#4c6c9a] dark:text-slate-400 font-medium">3 Alumnos asignados</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3 rounded-b-xl border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="text-primary text-sm font-semibold hover:underline">Ver ficha completa</button>
+</div>
+</article>
+<!-- Card 2: Contactada -->
+<article class="flex flex-col bg-white dark:bg-[#151f2e] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="Innova Logo" class="w-full h-full object-cover" data-alt="Company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCor4c2fffsFleTKDYqeguImlHivNUv53_6tyhobkcPHkI71qxKmGx5-agPukRWLRF2JZYP1O95AYYinw-sJWQpz-FuwD2iHtcpGbss_Ao-0aCgf-8v8Gck4dwox78NPq2SzOzn7UioPc3UxoZ7FqeFCX34CrteV0MRRvTszJq6UVUZeBmaPvD87NM71P6kJq4gsQSVFo3M4lrjUvh1TZU0DVfph8km5M-jFLayPfWsgORAvhnJDta3wIp_NuzgEe_J_knDRhGMI1I"/>
+</div>
+<div>
+<h3 class="text-[#0d131b] dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Innova Consulting</h3>
+<div class="flex items-center gap-1 mt-1 text-[#4c6c9a] dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span data-location="Alcobendas">Alcobendas, Madrid</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-[#0d131b] dark:hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 border border-orange-200 dark:border-orange-900/50">
+<span class="w-1.5 h-1.5 mr-1.5 bg-orange-500 rounded-full"></span>
+                                Contactada
+                            </span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+<div class="flex flex-col gap-2">
+<p class="text-xs font-semibold text-[#4c6c9a] dark:text-slate-500 uppercase tracking-wider">Ciclos Solicitados</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">ASIR</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">SMR</span>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<div class="text-xs text-slate-400 italic">Sin alumnos asignados</div>
+<button class="text-xs bg-primary/10 text-primary px-2 py-1 rounded font-medium hover:bg-primary/20 transition-colors">Asignar</button>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3 rounded-b-xl border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="text-primary text-sm font-semibold hover:underline">Ver ficha completa</button>
+</div>
+</article>
+<!-- Card 3: Sin contactar -->
+<article class="flex flex-col bg-white dark:bg-[#151f2e] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="SoftWorks Logo" class="w-full h-full object-cover" data-alt="Company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHVgVMQoqaK2V-EyfwDe0p2n6EBUlK7vyWlqVpLSJUTE1J3BESLEvDK13Qo-5Xf6ibHFtoJNkuKx6F3rOC2UIOGRFm4vYQ9xdkh9QDL5lNYWEyuJ2hPddYuSNphvY9V7aOEBoQVgZJUSmbm4lf-ug3OvAg8TOsB1T7sLY_BlDBe3_SanPXBhr9Sx0KS1tmneOZGvpIdm5HYfsrYP8DUu3ShN7u_u-kWG1YPKmx2COEQiZXRHghYW1h9yfr6C5Uk7vz8QypOx6YeA0"/>
+</div>
+<div>
+<h3 class="text-[#0d131b] dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">SoftWorks Dev</h3>
+<div class="flex items-center gap-1 mt-1 text-[#4c6c9a] dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span data-location="Remote">Remoto / Híbrido</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-[#0d131b] dark:hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-900/50">
+<span class="w-1.5 h-1.5 mr-1.5 bg-red-500 rounded-full"></span>
+                                Sin contactar
+                            </span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+<div class="flex flex-col gap-2">
+<p class="text-xs font-semibold text-[#4c6c9a] dark:text-slate-500 uppercase tracking-wider">Histórico</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-medium rounded border border-slate-100 dark:border-slate-800">DAW (2023)</span>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<div class="text-xs text-red-500 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                                Pendiente gestión
+                            </div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3 rounded-b-xl border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="text-primary text-sm font-semibold hover:underline">Ver ficha completa</button>
+</div>
+</article>
+<!-- Card 4: Conectada -->
+<article class="flex flex-col bg-white dark:bg-[#151f2e] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="CyberShield Logo" class="w-full h-full object-cover" data-alt="Company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUvhr5zdMXPjxd7z1ebC6ESHcXadfkfkc2NfRfSS8ntmwRtBP4EjEyxbrWZZW5Rpcq4XOWvOAK3mzX6IbVRojrQoHQrCWcLsEXO6ypEPmwy8sqtTnusojxRPTXELtDc7Enzt6uMecNk79j1hKetaM9HBc7WTMxGS8tgkvTHiZrkPCoSKxgpXCqEI1fqDMXzAhRTSQ24wBEOZjsDJyxbz7mbwEp5cHaix8EiIYFaHMsT6oCMHdsFYqRWl_tnjTXjqIx9aQd2tqy4Zg"/>
+</div>
+<div>
+<h3 class="text-[#0d131b] dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">CyberShield Security</h3>
+<div class="flex items-center gap-1 mt-1 text-[#4c6c9a] dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span data-location="Pozuelo">Pozuelo de Alarcón</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-[#0d131b] dark:hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-900/50">
+<span class="w-1.5 h-1.5 mr-1.5 bg-green-500 rounded-full"></span>
+                                Conectada
+                            </span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+<div class="flex flex-col gap-2">
+<p class="text-xs font-semibold text-[#4c6c9a] dark:text-slate-500 uppercase tracking-wider">Ciclos Solicitados</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">ASIR</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">DAW</span>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-7 h-7 rounded-full border-2 border-white dark:border-[#151f2e]" data-alt="Student avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhglDxtb7xD6sM4w2JGfMhf7jpkHUEJbGN_ukYm5D-E0aTRF-dKpqzaITkBP99YBgGGbputcjh5OuLJ0UHY0ZFUH2d92XajBagyrp_nQno4x7upWhfFBTD1pjAmYD29lJ-Jq0ispXstUjBsd9nq9Pp5HHbArZxVVfaBxNYky5nXAhpEfJsxhCOa4DjAGsks05joQqq1ftQYTC62qeyELYoREAVQogwlazWmW3fQ-AtX8dF_uGUMz_kxE5Q3EH5DLH5yKblKBMZOXU"/>
+</div>
+<span class="text-xs text-[#4c6c9a] dark:text-slate-400 font-medium">1 Alumno asignado</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3 rounded-b-xl border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="text-primary text-sm font-semibold hover:underline">Ver ficha completa</button>
+</div>
+</article>
+<!-- Card 5: Contactada -->
+<article class="flex flex-col bg-white dark:bg-[#151f2e] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="DataCorp Logo" class="w-full h-full object-cover" data-alt="Company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNLAtokXdXgNKgZII7_g3mVMqDyw8AeH8fZ9gJ_i6pq5Amd-z013sWluTQtlVj7IEiVhenJ5_srHZXz1neNZ8gI4kxGqGELhiGFgfJToDtIasF51bkfY8lJ1vEcYu6j-p-i1L6J4Y8fFxLPYLU1HMZNWJL9NZLWj8bsv3txG5hE53znrHYOufXdEXZ4_X9HiZNGDLlbkrGH6OaxdxabUI-7fiernvrEP-192Fo6Iiv5BKPmQeo3npgQ6k26ypLr2NybjV01u3pjyI"/>
+</div>
+<div>
+<h3 class="text-[#0d131b] dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">DataCorp Analytics</h3>
+<div class="flex items-center gap-1 mt-1 text-[#4c6c9a] dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span data-location="Madrid Center">Centro, Madrid</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-[#0d131b] dark:hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 border border-orange-200 dark:border-orange-900/50">
+<span class="w-1.5 h-1.5 mr-1.5 bg-orange-500 rounded-full"></span>
+                                Contactada
+                            </span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+<div class="flex flex-col gap-2">
+<p class="text-xs font-semibold text-[#4c6c9a] dark:text-slate-500 uppercase tracking-wider">Ciclos Solicitados</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-700">DAM</span>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<div class="text-xs text-slate-400 italic">Sin alumnos asignados</div>
+<button class="text-xs bg-primary/10 text-primary px-2 py-1 rounded font-medium hover:bg-primary/20 transition-colors">Asignar</button>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3 rounded-b-xl border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="text-primary text-sm font-semibold hover:underline">Ver ficha completa</button>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-between border-t border-slate-200 dark:border-slate-700 pt-4">
+<p class="text-sm text-[#4c6c9a] dark:text-slate-400">Mostrando <span class="font-medium text-[#0d131b] dark:text-white">1</span> a <span class="font-medium text-[#0d131b] dark:text-white">5</span> de <span class="font-medium text-[#0d131b] dark:text-white">42</span> empresas</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed opacity-50">Anterior</button>
+<button class="px-3 py-1 text-sm border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800 text-[#0d131b] dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Siguiente</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
