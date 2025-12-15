@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle de Empresa - FCT SmartTrack</title>
+<!-- Google Fonts: Lexend -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden h-screen flex">
+<!-- Sidebar -->
+<aside class="w-64 bg-white dark:bg-[#1a2632] border-r border-[#e5e7eb] dark:border-[#2a3844] flex-shrink-0 flex flex-col h-full overflow-y-auto">
+<div class="p-6 pb-2">
+<h1 class="text-[#111418] dark:text-white text-xl font-bold leading-normal tracking-tight">FCT SmartTrack</h1>
+<p class="text-[#617589] dark:text-[#94a3b8] text-sm font-normal leading-normal">Gestión de Prácticas</p>
+</div>
+<nav class="flex-1 px-4 py-4 flex flex-col gap-2">
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 text-primary group transition-colors" href="#">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">domain</span>
+<p class="text-sm font-medium leading-normal">Gestión de empresas</p>
+</a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#111418] dark:text-[#e2e8f0] hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8] group-hover:text-[#111418] dark:group-hover:text-white transition-colors" style="font-size: 24px;">group</span>
+<p class="text-sm font-medium leading-normal">Empresas por profesor</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#111418] dark:text-[#e2e8f0] hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8] group-hover:text-[#111418] dark:group-hover:text-white transition-colors" style="font-size: 24px;">settings</span>
+<p class="text-sm font-medium leading-normal">Configuración</p>
+</a>
+</nav>
+<div class="p-4 border-t border-[#e5e7eb] dark:border-[#2a3844]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#e5e7eb] dark:bg-[#334155] flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]">person</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-[#111418] dark:text-white">Admin User</p>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8]">admin@fct.edu</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto p-6 md:p-10 flex flex-col gap-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap items-center gap-2">
+<a class="text-[#617589] dark:text-[#94a3b8] text-sm font-medium hover:text-primary transition-colors" href="#">Empresas</a>
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]" style="font-size: 16px;">chevron_right</span>
+<span class="text-[#111418] dark:text-white text-sm font-medium">Detalle de Empresa</span>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111418] dark:text-white text-3xl font-bold tracking-tight">Editar Empresa</h1>
+<p class="text-[#617589] dark:text-[#94a3b8] text-base font-normal">Edita la información, gestiona contactos y asignaciones.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#1a2632] text-[#111418] dark:text-white text-sm font-bold hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors">
+                        Cancelar
+                    </button>
+<button class="h-10 px-6 rounded-lg bg-primary text-white text-sm font-bold shadow-sm hover:bg-blue-600 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">save</span>
+                        Guardar Cambios
+                    </button>
+</div>
+</div>
+<!-- Main Form Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column (Main Info) -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Card: General Information -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#dbe0e6] dark:border-[#2a3844] shadow-sm p-6">
+<h2 class="text-lg font-bold text-[#111418] dark:text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">apartment</span>
+                            Información General
+                        </h2>
+<div class="flex flex-col gap-6">
+<!-- Name Field -->
+<label class="flex flex-col gap-2">
+<span class="text-[#111418] dark:text-[#e2e8f0] text-sm font-medium leading-normal">Nombre de la Empresa <span class="text-red-500">*</span></span>
+<input class="w-full h-12 px-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-[#111418] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-[#617589] dark:placeholder:text-[#64748b]" placeholder="Ej. Tech Solutions S.L." value="Tech Solutions S.L."/>
+</label>
+<!-- Status Selection (Radio Group) -->
+<div class="flex flex-col gap-2">
+<span class="text-[#111418] dark:text-[#e2e8f0] text-sm font-medium leading-normal">Estado Actual</span>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<!-- Contactado (Orange) -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="status" type="radio"/>
+<div class="h-12 px-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] flex items-center justify-center gap-2 peer-checked:border-orange-500 peer-checked:bg-orange-50 dark:peer-checked:bg-orange-900/10 peer-checked:text-orange-700 dark:peer-checked:text-orange-400 transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+<span class="text-sm font-medium text-[#617589] dark:text-[#94a3b8] group-hover:text-[#111418] dark:group-hover:text-white peer-checked:!text-orange-700 dark:peer-checked:!text-orange-400">Contactado</span>
+</div>
+</label>
+<!-- Conectado (Green) -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="status" type="radio"/>
+<div class="h-12 px-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] flex items-center justify-center gap-2 peer-checked:border-green-500 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/10 peer-checked:text-green-700 dark:peer-checked:text-green-400 transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+<span class="text-sm font-medium text-[#617589] dark:text-[#94a3b8] group-hover:text-[#111418] dark:group-hover:text-white peer-checked:!text-green-700 dark:peer-checked:!text-green-400">Conectado</span>
+</div>
+</label>
+<!-- Sin contactar (Red) -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="status" type="radio"/>
+<div class="h-12 px-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] flex items-center justify-center gap-2 peer-checked:border-red-500 peer-checked:bg-red-50 dark:peer-checked:bg-red-900/10 peer-checked:text-red-700 dark:peer-checked:text-red-400 transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+<span class="text-sm font-medium text-[#617589] dark:text-[#94a3b8] group-hover:text-[#111418] dark:group-hover:text-white peer-checked:!text-red-700 dark:peer-checked:!text-red-400">Sin contactar</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Ciclos Formativos (Checkboxes styled as chips) -->
+<div class="flex flex-col gap-2">
+<span class="text-[#111418] dark:text-[#e2e8f0] text-sm font-medium leading-normal">Ciclos Formativos de Interés</span>
+<div class="flex flex-wrap gap-2">
+<label class="cursor-pointer select-none">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 rounded-full border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-sm text-[#617589] dark:text-[#94a3b8] peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all font-medium">DAW</div>
+</label>
+<label class="cursor-pointer select-none">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 rounded-full border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-sm text-[#617589] dark:text-[#94a3b8] peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all font-medium">DAM</div>
+</label>
+<label class="cursor-pointer select-none">
+<input class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 rounded-full border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-sm text-[#617589] dark:text-[#94a3b8] peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all font-medium">ASIR</div>
+</label>
+<label class="cursor-pointer select-none">
+<input class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 rounded-full border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-sm text-[#617589] dark:text-[#94a3b8] peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all font-medium">SMR</div>
+</label>
+</div>
+</div>
+<!-- Address -->
+<label class="flex flex-col gap-2">
+<span class="text-[#111418] dark:text-[#e2e8f0] text-sm font-medium leading-normal">Dirección</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#94a3b8]" style="font-size: 20px;">location_on</span>
+<input class="w-full h-12 pl-11 pr-4 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-[#111418] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-[#617589] dark:placeholder:text-[#64748b]" placeholder="Calle, Número, Ciudad" value="Av. de la Innovación 12, Madrid"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Card: Communications History -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#dbe0e6] dark:border-[#2a3844] shadow-sm flex flex-col overflow-hidden">
+<div class="p-6 border-b border-[#e5e7eb] dark:border-[#2a3844] flex items-center justify-between">
+<h2 class="text-lg font-bold text-[#111418] dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                Historial de Comunicaciones
+                            </h2>
+<button class="text-sm font-bold text-primary hover:underline">Ver todo</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#f8f9fa] dark:bg-[#23303d] border-b border-[#e5e7eb] dark:border-[#2a3844]">
+<th class="px-6 py-3 text-xs font-bold text-[#617589] dark:text-[#94a3b8] uppercase tracking-wider">Vía</th>
+<th class="px-6 py-3 text-xs font-bold text-[#617589] dark:text-[#94a3b8] uppercase tracking-wider">Concepto</th>
+<th class="px-6 py-3 text-xs font-bold text-[#617589] dark:text-[#94a3b8] uppercase tracking-wider">Con quién</th>
+<th class="px-6 py-3 text-xs font-bold text-[#617589] dark:text-[#94a3b8] uppercase tracking-wider">Fecha</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e5e7eb] dark:divide-[#2a3844]">
+<tr class="group hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]" style="font-size: 18px;">mail</span>
+<span class="text-sm text-[#111418] dark:text-white">Email</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#111418] dark:text-white font-medium">Solicitud de Convenio</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">Ana García</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">10 Oct 2023</td>
+</tr>
+<tr class="group hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]" style="font-size: 18px;">call</span>
+<span class="text-sm text-[#111418] dark:text-white">Teléfono</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#111418] dark:text-white font-medium">Seguimiento Alumno</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">Carlos Ruiz</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">25 Sep 2023</td>
+</tr>
+<tr class="group hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]" style="font-size: 18px;">videocam</span>
+<span class="text-sm text-[#111418] dark:text-white">Videollamada</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#111418] dark:text-white font-medium">Reunión Inicio FCT</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">Equipo RRHH</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-[#617589] dark:text-[#94a3b8]">15 Sep 2023</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column (Assignment & Contacts) -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<!-- Card: Assignment -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#dbe0e6] dark:border-[#2a3844] shadow-sm p-6">
+<h2 class="text-lg font-bold text-[#111418] dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">school</span>
+                            Profesor Asignado
+                        </h2>
+<div class="flex flex-col gap-4">
+<p class="text-sm text-[#617589] dark:text-[#94a3b8]">Selecciona el profesor responsable del seguimiento de esta empresa.</p>
+<div class="relative">
+<select class="w-full h-12 pl-4 pr-10 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] bg-white dark:bg-[#101922] text-[#111418] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary appearance-none cursor-pointer">
+<option disabled="" value="">Seleccionar Profesor</option>
+<option selected="" value="1">Roberto López (Informática)</option>
+<option value="2">Maria González (Administración)</option>
+<option value="3">Juan Pérez (Comercio)</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#617589]">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-900/50 flex gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-200 dark:bg-blue-800 flex items-center justify-center text-blue-700 dark:text-blue-200 font-bold text-xs">RL</div>
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Roberto López</p>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8]">roberto.lopez@edu.es</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Contacts -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#dbe0e6] dark:border-[#2a3844] shadow-sm flex flex-col">
+<div class="p-6 pb-2 flex items-center justify-between">
+<h2 class="text-lg font-bold text-[#111418] dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">contacts</span>
+                                Contactos
+                            </h2>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] text-primary transition-colors" title="Añadir contacto">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="flex flex-col p-2">
+<!-- Contact Item 1 -->
+<div class="p-4 rounded-lg hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors flex gap-3 group cursor-pointer relative">
+<div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold text-sm shrink-0">
+                                    AG
+                                </div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold text-[#111418] dark:text-white truncate">Ana García</p>
+<span class="material-symbols-outlined text-yellow-400 fill-current" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8] truncate">ana.garcia@techsolutions.com</p>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">call</span> +34 600 123 456
+                                    </p>
+</div>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-[#617589] hover:text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">edit</span></button>
+</div>
+</div>
+<!-- Contact Item 2 -->
+<div class="p-4 rounded-lg hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors flex gap-3 group cursor-pointer relative">
+<div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold text-sm shrink-0">
+                                    CR
+                                </div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold text-[#111418] dark:text-white truncate">Carlos Ruiz</p>
+</div>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8] truncate">carlos.ruiz@techsolutions.com</p>
+<p class="text-xs text-[#617589] dark:text-[#94a3b8] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">call</span> +34 600 987 654
+                                    </p>
+</div>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-[#617589] hover:text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">edit</span></button>
+</div>
+</div>
+</div>
+<button class="mx-6 mb-6 mt-2 h-9 rounded-lg border border-[#dbe0e6] dark:border-[#3e4c59] text-sm font-bold text-[#111418] dark:text-white hover:bg-[#f0f2f4] dark:hover:bg-[#23303d] transition-colors">
+                            Ver todos los contactos
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Interactive Placeholder Script (Optional visual feedback for radio/checks) -->
+<script>
+        // No JS logic required for functionality as per prompt, just CSS states. 
+        // This is purely structure.
+    </script>
+</body></html>
