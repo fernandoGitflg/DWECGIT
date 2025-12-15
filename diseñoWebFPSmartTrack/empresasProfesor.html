@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresas por Profesor - FCT SmartTrack</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Noto+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/empresasProfesor.css">
+</head>
+
+<body>
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo"></div>
+      <div>
+        <h1>FCT SmartTrack</h1>
+        <p>Panel de Administración</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item">
+        <span class="material-symbols-outlined">domain</span>
+        Gestión de empresas
+      </a>
+      <a class="nav-item active">
+        <span class="material-symbols-outlined">school</span>
+        Empresas por profesor
+      </a>
+      <a class="nav-item">
+        <span class="material-symbols-outlined">settings</span>
+        Configuración
+      </a>
+    </nav>
+
+    <a class="logout">
+      <span class="material-symbols-outlined">logout</span>
+      Cerrar sesión
+    </a>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="content">
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <div>
+        <h2>Empresas por Profesor</h2>
+        <p>Consulta y gestiona el seguimiento de prácticas.</p>
+      </div>
+      <button class="btn-primary">
+        <span class="material-symbols-outlined">add</span>
+        Nueva Asignación
+      </button>
+    </header>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stat-card">
+        <p>Total Asignaciones</p>
+        <strong>45</strong>
+      </div>
+      <div class="stat-card success">
+        <p>Empresas Conectadas</p>
+        <strong>28</strong>
+      </div>
+      <div class="stat-card warning">
+        <p>Pendientes de Contacto</p>
+        <strong>8</strong>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filters">
+
+        <div class="filter-search">
+            <span class="material-symbols-outlined">search</span>
+            <input
+            type="text"
+            placeholder="Filtrar por nombre del profesor..."
+            aria-label="Filtrar por nombre del profesor">
+        </div>
+  
+        <button class="btn-filter">
+            <span class="material-symbols-outlined">filter_list</span>
+            Más filtros
+        </button>
+  
+    </section>
+
+    <!-- TABLE -->
+    <section class="card table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Profesor</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>TechSolutions SL</strong>
+              <small>Desarrollo Web · Madrid</small>
+            </td>
+            <td>Ana García</td>
+            <td><span class="badge green">Conectado</span></td>
+            <td><a class="link">Ver detalle</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Innovación Digital</strong>
+              <small>Marketing · Remoto</small>
+            </td>
+            <td>Carlos Ruiz</td>
+            <td><span class="badge orange">Contactado</span></td>
+            <td><a class="link">Ver detalle</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

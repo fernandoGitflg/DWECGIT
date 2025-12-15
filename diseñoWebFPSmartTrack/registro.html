@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Empresas · FCT SmartTrack</title>
+
+  <!-- Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/registro.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <h1>FCT SmartTrack</h1>
+        <p>Panel de Administración</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active">
+          <span class="material-symbols-outlined">business_center</span>
+          Gestión de empresas
+        </a>
+        <a class="nav-item">
+          <span class="material-symbols-outlined">person_search</span>
+          Empresas por profesor
+        </a>
+        <a class="nav-item">
+          <span class="material-symbols-outlined">settings</span>
+          Configuración
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="avatar">
+        <span class="material-symbols-outlined">account_circle</span>
+      </div>
+      <div>
+        <strong>Admin Usuario</strong>
+        <small>admin@fct-smart.edu</small>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="content">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb">
+      <a href="#">Inicio</a>
+      <span>›</span>
+      <a href="#">Empresas</a>
+      <span>›</span>
+      <strong>Nueva Empresa</strong>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h2>Registrar Nueva Empresa</h2>
+      <p>Introduce los datos de la empresa colaboradora para gestionar las prácticas del alumnado.</p>
+    </header>
+
+    <!-- FORM -->
+    <form class="card">
+
+      <!-- DATOS GENERALES -->
+      <section class="form-section">
+        <h3>
+          <span class="material-symbols-outlined">domain</span>
+          Datos Generales
+        </h3>
+
+        <div class="form-grid">
+          <label>
+            Nombre de la empresa <span class="required">*</span>
+            <input type="text" placeholder="Tech Solutions S.L." required>
+          </label>
+
+          <label>
+            CIF / NIF
+            <input type="text" placeholder="B12345678">
+          </label>
+
+          <label class="full">
+            Sitio web
+            <div class="icon-input">
+              <span class="material-symbols-outlined">language</span>
+              <input type="url" placeholder="https://www.empresa.com">
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section class="form-section">
+        <h3>
+          <span class="material-symbols-outlined">contact_mail</span>
+          Contacto y Ubicación
+        </h3>
+
+        <div class="form-grid">
+          <label>
+            Email de contacto
+            <input type="email" placeholder="rrhh@empresa.com">
+          </label>
+
+          <label>
+            Teléfono
+            <input type="tel" placeholder="+34 600 000 000">
+          </label>
+
+          <label class="full">
+            Dirección completa
+            <input type="text" placeholder="Calle Principal, 123, 28001 Madrid">
+          </label>
+        </div>
+      </section>
+
+      <!-- CICLOS -->
+      <section class="form-section">
+        <h3>
+          <span class="material-symbols-outlined">school</span>
+          Ciclos Formativos Admitidos
+        </h3>
+
+        <div class="cycle-grid">
+          <label><input type="checkbox"> DAW</label>
+          <label><input type="checkbox"> DAM</label>
+          <label><input type="checkbox"> ASIR</label>
+          <label><input type="checkbox"> SMR</label>
+        </div>
+
+        <label>
+          Notas adicionales
+          <textarea placeholder="Observaciones, condiciones, horarios preferidos…"></textarea>
+        </label>
+      </section>
+
+      <!-- ACTIONS -->
+      <footer class="form-actions">
+        <button type="button" class="btn-outline">Cancelar</button>
+        <button type="submit" class="btn-primary">
+          <span class="material-symbols-outlined">save</span>
+          Guardar Empresa
+        </button>
+      </footer>
+
+    </form>
+
+  </main>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast success hidden">
+  <span class="material-symbols-outlined">check_circle</span>
+  <div>
+    <strong>Empresa registrada</strong>
+    <p>Los datos se han guardado correctamente.</p>
+  </div>
+</div>
+
+</body>
+</html>

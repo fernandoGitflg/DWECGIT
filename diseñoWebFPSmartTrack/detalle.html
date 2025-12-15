@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Empresa - FCT SmartTrack</title>
+
+  <!-- Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/detalle.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>FCT SmartTrack</h1>
+      <p>Gestión de Prácticas</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active">
+        <span class="material-symbols-outlined">domain</span>
+        Gestión de empresas
+      </a>
+      <a class="nav-item">
+        <span class="material-symbols-outlined">group</span>
+        Empresas por profesor
+      </a>
+      <a class="nav-item">
+        <span class="material-symbols-outlined">settings</span>
+        Configuración
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="avatar">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+      <div>
+        <strong>Admin User</strong>
+        <small>admin@fct.edu</small>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="content">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="#">Empresas</a>
+      <span class="material-symbols-outlined">chevron_right</span>
+      <span>Detalle de Empresa</span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <div>
+        <h2>Editar Empresa</h2>
+        <p>Edita la información, gestiona contactos y asignaciones.</p>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-outline">Cancelar</button>
+        <button class="btn-primary">
+          <span class="material-symbols-outlined">save</span>
+          Guardar Cambios
+        </button>
+      </div>
+    </header>
+
+    <!-- GRID -->
+    <section class="grid">
+
+      <!-- LEFT -->
+      <div class="col-main">
+
+        <!-- CARD -->
+        <section class="card">
+          <h3>
+            <span class="material-symbols-outlined">apartment</span>
+            Información General
+          </h3>
+
+          <label>
+            Nombre de la Empresa *
+            <input type="text" value="Tech Solutions S.L.">
+          </label>
+
+          <div class="status-group">
+            <label class="status orange">
+              <input type="radio" name="estado" checked>
+              Contactado
+            </label>
+            <label class="status green">
+              <input type="radio" name="estado">
+              Conectado
+            </label>
+            <label class="status red">
+              <input type="radio" name="estado">
+              Sin contactar
+            </label>
+          </div>
+
+          <div class="chips">
+            <label><input type="checkbox" checked> DAW</label>
+            <label><input type="checkbox" checked> DAM</label>
+            <label><input type="checkbox"> ASIR</label>
+            <label><input type="checkbox"> SMR</label>
+          </div>
+
+          <label>
+            Dirección
+            <input type="text" value="Av. de la Innovación 12, Madrid">
+          </label>
+        </section>
+
+      </div>
+      <section class="card card-table">
+        <div class="card-header">
+          <h3>
+            <span class="material-symbols-outlined">history</span>
+            Historial de Comunicaciones
+          </h3>
+          <a href="#" class="link-primary">Ver todo</a>
+        </div>
+      
+        <table class="table">
+          <thead>
+            <tr>
+              <th>VÍA</th>
+              <th>CONCEPTO</th>
+              <th>CON QUIÉN</th>
+              <th>FECHA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="material-symbols-outlined">mail</span> Email</td>
+              <td><strong>Solicitud de Convenio</strong></td>
+              <td>Ana García</td>
+              <td>10 Oct 2023</td>
+            </tr>
+            <tr>
+              <td><span class="material-symbols-outlined">call</span> Teléfono</td>
+              <td><strong>Seguimiento Alumno</strong></td>
+              <td>Carlos Ruiz</td>
+              <td>25 Sep 2023</td>
+            </tr>
+            <tr>
+              <td><span class="material-symbols-outlined">videocam</span> Videollamada</td>
+              <td><strong>Reunión Inicio FCT</strong></td>
+              <td>Equipo RRHH</td>
+              <td>15 Sep 2023</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+
+      <!-- RIGHT -->
+      <div class="col-side">
+
+        <section class="card">
+          <h3>
+            <span class="material-symbols-outlined">school</span>
+            Profesor Asignado
+          </h3>
+
+          <select>
+            <option>Roberto López (Informática)</option>
+            <option>María González</option>
+          </select>
+
+          <div class="profesor">
+            <div class="circle">RL</div>
+            <div>
+              <strong>Roberto López</strong>
+              <small>roberto.lopez@edu.es</small>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+    <section class="card">
+        <div class="card-header">
+          <h3>
+            <span class="material-symbols-outlined">contacts</span>
+            Contactos
+          </h3>
+          <span class="material-symbols-outlined add-icon">add</span>
+        </div>
+      
+        <div class="contact">
+          <div class="contact-avatar orange">AG</div>
+          <div class="contact-info">
+            <strong>Ana García</strong>
+            <small>ana.garcia@techsolutions.com</small>
+            <small>+34 600 123 456</small>
+          </div>
+          <span class="material-symbols-outlined star">star</span>
+        </div>
+      
+        <div class="contact">
+          <div class="contact-avatar purple">CR</div>
+          <div class="contact-info">
+            <strong>Carlos Ruiz</strong>
+            <small>carlos.ruiz@techsolutions.com</small>
+            <small>+34 600 987 654</small>
+          </div>
+        </div>
+      
+        <button class="btn-outline full">Ver todos los contactos</button>
+      </section>
+      
+
+  </main>
+
+</div>
+
+</body>
+</html>

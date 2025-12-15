@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FCT SmartTrack - Login</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="styles/login.css"/>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Fondo decorativo -->
+    <div class="background-deco">
+      <div class="circle circle-top"></div>
+      <div class="circle circle-bottom"></div>
+    </div>
+
+    <!-- Tarjeta de login -->
+    <div class="login-card">
+      <div class="branding">
+        <div class="logo">
+          <span class="material-symbols-outlined">school</span>
+        </div>
+        <h1>FCT SmartTrack</h1>
+        <p>Gestión de FCT y profesores</p>
+      </div>
+
+      <form class="login-form">
+        <label>
+          <p>Usuario</p>
+          <input type="text" placeholder="usuario@ejemplo.com"/>
+        </label>
+
+        <label>
+          <p>Contraseña</p>
+          <div class="password-wrapper">
+            <input type="password" placeholder="Introduce tu contraseña"/>
+            <div class="toggle-visibility">
+              <span class="material-symbols-outlined">visibility</span>
+            </div>
+          </div>
+        </label>
+
+        <div class="forgot">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+
+      <div class="footer">
+        <p>¿No tienes acceso? <a href="#">Contacta al administrador</a></p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2024 FCT SmartTrack. Todos los derechos reservados.
+    </div>
+  </div>
+</body>
+</html>

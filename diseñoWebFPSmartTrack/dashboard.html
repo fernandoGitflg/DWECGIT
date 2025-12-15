@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FCT SmartTrack - Gestión de Empresas</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="material-symbols-outlined primary">school</span>
+      <h1>FCT SmartTrack</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active">
+        <span class="material-symbols-outlined">domain</span>
+        Gestión de empresas
+      </a>
+      <a class="nav-item">
+        <span class="material-symbols-outlined">group</span>
+        Empresas por profesor
+      </a>
+      <a class="nav-item">
+        <span class="material-symbols-outlined">settings</span>
+        Configuración
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB84xELMZ4O5knCiMreUEZDA_JmqnrS3dUm9ZMcal31aGjgz8D_lXNap0T8RV89v-EE2AJsauYIo1RFAP0tKrxvSerykbAhkMgSfzKtHWihHFW0l2AWGeQzNveAKAHFVAzFSfeI97D0CgBqnRLewillT0DF_iKjmNi6g-bKAumBFhiqaaFFNq5tnI5Iy8oEylZb1ltLHMwau6lon9dNrmK9pRKYxB4tgWqGIaDvPJCzQtDHoLJ7XL1HYmBmJPW4iwf-r1rHC4HRCkPn" alt="">
+      <div>
+        <strong>Admin User</strong>
+        <small>admin@fct.edu</small>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <h2>Gestión de Empresas</h2>
+        <p>Listado y administración de convenios de prácticas</p>
+      </div>
+      <button class="btn-primary">
+        <span class="material-symbols-outlined">add</span>
+        Nueva Empresa
+      </button>
+    </header>
+
+    <!-- SEARCH -->
+    <div class="filters">
+      <div class="search">
+        <span class="material-symbols-outlined">search</span>
+        <input type="text" placeholder="Buscar por nombre, grado o ciudad...">
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <section class="grid">
+
+      <!-- CARD -->
+      <article class="card">
+        <div class="card-image" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3GMOpfy7OeLpKIhXTaiMx5njg1z5Sob1IWPvRcqZH9_eChGrAXJDEOOorPtRA4p11YhHDJRgq3vvlElvLCbAPWrgGFCsp_BE8sCkDAA10FTHfmRzHwYlEZg81jsBh-tD6s0UIyTl50nADW-k7FTtw_joZt5lzLwuUmH8D-fyPLkWDlNeAXBZxHY3DfSA2YwRGxPJyaBuYorYwYSj-73srdyw3vxkxl1xMsM3KoOhgvz7OdlheJveEPTGodww6mi9xWErw61otGpH-')">
+          <span class="badge green">Conectado</span>
+        </div>
+
+        <div class="card-body">
+          <h3>Tech Solutions S.L.</h3>
+          <p class="location">
+            <span class="material-symbols-outlined">location_on</span>
+            Madrid, Centro
+          </p>
+
+          <div class="tags">
+            <span>DAM</span>
+            <span>DAW</span>
+          </div>
+
+          <div class="card-footer">
+            <small>Actualizado hace 2d</small>
+            <a href="#">Ver detalles</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DUPLICA LAS CARDS SEGÚN NECESITES -->
+
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
