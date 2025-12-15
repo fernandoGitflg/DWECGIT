@@ -1,0 +1,269 @@
+/* ESTILO GENERAL */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Utilidades */
+
+.oculto {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* PANTALLAS PRINCIPALES */
+
+.pantalla {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* LOGIN */
+
+#pantalla-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 4px;
+    width: 320px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-grupo {
+    margin-bottom: 1rem;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* BOTONES */
+
+.btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-primario {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-secundario {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-tabla {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+}
+
+/* MENSAJES */
+
+.mensaje-error {
+    color: #b00020;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.mensaje-exito {
+    color: #2e7d32;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* APP TRAS LOGIN */
+
+#pantalla-app {
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABECERA */
+
+.cabecera {
+    background-color: #343a40;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* MENÚ */
+
+.menu {
+    background-color: #e9ecef;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 0.4rem 0.7rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* CONTENIDO */
+
+.contenido {
+    padding: 1rem;
+}
+
+/* SUBPANTALLAS */
+
+.subpantalla {
+    display: none;
+}
+
+.subpantalla.visible {
+    display: block;
+}
+
+/* BARRA SUPERIOR DE SECCIÓN */
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* FILTROS Y BUSCADOR */
+
+.filtros {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filtros input,
+.filtros select {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+}
+
+/* TABLA */
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.tabla th {
+    background-color: #f1f1f1;
+}
+
+/* FORMULARIOS GENERALES */
+
+.formulario {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.formulario h3 {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Checkbox group */
+
+.checkbox-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+}
+
+/* Acciones de formularios */
+
+.acciones-form {
+    margin-top: 1rem;
+}
+
+/* Listas simples */
+
+.lista-empresas-profesor {
+    margin: 0.5rem 0 1rem 1.2rem;
+}
+
+.lista-empresas-profesor li {
+    margin-bottom: 0.2rem;
+}
+
+/* RESPONSIVE BÁSICO */
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
