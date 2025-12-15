@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CRM Empresas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>CRM Empresas</h1>
+  <button onclick="mostrarFormulario()">+ Nueva Empresa</button>
+</header>
+
+<section class="filters">
+  <input type="text" placeholder="Buscar por nombre...">
+  <select>
+    <option>Asignatura</option>
+    <option>DAM</option>
+    <option>DAW</option>
+    <option>ASIR</option>
+  </select>
+  <select>
+    <option>Estado</option>
+    <option>Contactada</option>
+    <option>Pendiente</option>
+  </select>
+</section>
+
+<section class="empresa-card estado-contactada">
+  <h3>Tech Solutions S.A.</h3>
+  <p>Ciclos: DAM, DAW | Ciudad: Madrid | Profesor: Dr. García Martínez</p>
+</section>
+
+<section class="empresa-card estado-pendiente">
+  <h3>Servicios Web Plus</h3>
+  <p>Ciclos: DAM, DAW | Ciudad: Sevilla | Profesor: -</p>
+</section>
+
+<section class="formulario" style="display:none;">
+  <h2>Registrar Empresa</h2>
+  <input type="text" placeholder="Nombre de la empresa *" required>
+  <input type="text" placeholder="Sector">
+  <input type="text" placeholder="Ciudad">
+  <input type="text" placeholder="Teléfono">
+  <input type="email" placeholder="Email">
+  <textarea placeholder="Notas"></textarea>
+  <select>
+    <option>Profesor de contacto</option>
+    <option>Dr. García Martínez</option>
+    <option>Dra. López Fernández</option>
+  </select>
+  <button onclick="guardarEmpresa()">Guardar</button>
+</section>
+
+<section class="contactos">
+  <h2>Contactos</h2>
+  <div class="contacto">
+    <strong>Pedro Sánchez</strong> (Preferente)<br>
+    📞 +34 954 123 457<br>
+    ✉ pedro.sanchez@servicioswebplus.com
+  </div>
+  <button onclick="añadirContacto()">+ Añadir Contacto</button>
+</section>
+
+<section class="comunicaciones">
+  <h2>Comunicaciones</h2>
+  <p>No hay comunicaciones registradas.</p>
+  <button onclick="nuevaComunicacion()">+ Nueva Comunicación</button>
+</section>
+
+<div class="alerta" style="display:none;">
+  Empresa registrada correctamente.
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

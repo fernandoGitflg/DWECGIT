@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Prácticas</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <!-- PANTALLA LOGIN -->
+    <section id="pantalla-login" class="pantalla visible">
+        <div class="login-container">
+            <h1>Gestión de Prácticas</h1>
+            <form id="form-login">
+                <div class="form-grupo">
+                    <label for="usuario">Usuario o email</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primario">Entrar</button>
+
+                <p id="login-error" class="mensaje-error oculto">
+                    Usuario o contraseña incorrectos
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTENIDO TRAS LOGIN -->
+    <section id="pantalla-app" class="pantalla oculto">
+        <!-- CABECERA -->
+        <header class="cabecera">
+            <h1>Gestión de Prácticas</h1>
+            <div class="usuario-info">
+                <span id="usuario-logueado">Usuario</span>
+                <button id="btn-logout" class="btn btn-secundario">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <!-- MENÚ PRINCIPAL -->
+        <nav class="menu">
+            <button class="menu-btn" data-pantalla="empresas-lista">Empresas</button>
+            <button class="menu-btn" data-pantalla="empresas-profesor">Empresas por profesor</button>
+            <button class="menu-btn" data-pantalla="alumnos">Alumnos / Prácticas</button>
+        </nav>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <!-- PANTALLA: LISTA DE EMPRESAS -->
+            <section id="pantalla-empresas-lista" class="subpantalla visible">
+                <div class="barra-superior">
+                    <h2>Empresas</h2>
+                    <button id="btn-nueva-empresa" class="btn btn-primario">
+                        Nueva empresa
+                    </button>
+                </div>
+
+                <!-- Buscador y filtros -->
+                <div class="filtros">
+                    <input type="text" id="buscador-empresas" placeholder="Buscar empresa...">
+                    <select id="filtro-estado">
+                        <option value="">Todos los estados</option>
+                        <option value="sin-contactar">Sin contactar</option>
+                        <option value="contactada">Contactada</option>
+                        <option value="conectada">Conectada</option>
+                    </select>
+                    <select id="filtro-ciclo">
+                        <option value="">Todos los ciclos</option>
+                        <option value="DAW">DAW</option>
+                        <option value="DAM">DAM</option>
+                        <option value="ASIR">ASIR</option>
+                    </select>
+                </div>
+
+                <!-- Tabla de empresas (ejemplo estático) -->
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Ciclos que acepta</th>
+                            <th>Localidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Empresa Ejemplo 1</td>
+                            <td>Sin contactar</td>
+                            <td>DAW, DAM</td>
+                            <td>Valladolid</td>
+                            <td>
+                                <button class="btn btn-tabla btn-ver-empresa" data-id="1">
+                                    Ver / Editar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Empresa Ejemplo 2</td>
+                            <td>Contactada</td>
+                            <td>ASIR</td>
+                            <td>Madrid</td>
+                            <td>
+                                <button class="btn btn-tabla btn-ver-empresa" data-id="2">
+                                    Ver / Editar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- PANTALLA: FORMULARIO EMPRESA (VER / EDITAR / NUEVA) -->
+            <section id="pantalla-empresa-form" class="subpantalla oculto">
+                <div class="barra-superior">
+                    <h2 id="titulo-empresa-form">Empresa</h2>
+                    <button id="btn-volver-empresas" class="btn btn-secundario">
+                        Volver a la lista
+                    </button>
+                </div>
+
+                <form id="form-empresa" class="formulario">
+                    <h3>Datos principales</h3>
+                    <div class="grid-2">
+                        <div class="form-grupo">
+                            <label for="empresa-nombre">Nombre de la empresa *</label>
+                            <input type="text" id="empresa-nombre" name="empresa-nombre" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="empresa-cif">CIF</label>
+                            <input type="text" id="empresa-cif" name="empresa-cif">
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="empresa-localidad">Localidad</label>
+                            <input type="text" id="empresa-localidad" name="empresa-localidad">
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="empresa-estado">Estado</label>
+                            <select id="empresa-estado" name="empresa-estado">
+                                <option value="sin-contactar">Sin contactar</option>
+                                <option value="contactada">Contactada</option>
+                                <option value="conectada">Conectada</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="empresa-direccion">Dirección</label>
+                        <input type="text" id="empresa-direccion" name="empresa-direccion">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="empresa-ciclos">Ciclos que acepta</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="empresa-ciclos" value="DAW"> DAW</label>
+                            <label><input type="checkbox" name="empresa-ciclos" value="DAM"> DAM</label>
+                            <label><input type="checkbox" name="empresa-ciclos" value="ASIR"> ASIR</label>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h3>Contactos</h3>
+
+                    <!-- Contacto preferente (uno visible) -->
+                    <div class="grid-2">
+                        <div class="form-grupo">
+                            <label for="contacto-nombre">Nombre contacto preferente</label>
+                            <input type="text" id="contacto-nombre" name="contacto-nombre">
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="contacto-email">Email</label>
+                            <input type="email" id="contacto-email" name="contacto-email">
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="contacto-telefono">Teléfono</label>
+                            <input type="tel" id="contacto-telefono" name="contacto-telefono">
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="contacto-preferente">Preferente</label>
+                            <select id="contacto-preferente" name="contacto-preferente">
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secundario">
+                        Ver más contactos
+                    </button>
+
+                    <hr>
+
+                    <h3>Comunicaciones</h3>
+
+                    <div class="form-grupo">
+                        <label for="comunicacion-via">Vía de comunicación</label>
+                        <select id="comunicacion-via" name="comunicacion-via">
+                            <option value="">Seleccione</option>
+                            <option value="email">Email</option>
+                            <option value="telefono">Teléfono</option>
+                            <option value="reunion">Reunión</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="comunicacion-concepto">Concepto</label>
+                        <input type="text" id="comunicacion-concepto" name="comunicacion-concepto">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="comunicacion-persona">Con quién</label>
+                        <input type="text" id="comunicacion-persona" name="comunicacion-persona">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="comunicacion-fecha">Fecha</label>
+                        <input type="date" id="comunicacion-fecha" name="comunicacion-fecha">
+                    </div>
+
+                    <button type="button" class="btn btn-secundario">
+                        Añadir comunicación
+                    </button>
+
+                    <hr>
+
+                    <!-- Profesor de contacto -->
+                    <h3>Profesor de contacto</h3>
+
+                    <div class="form-grupo">
+                        <label for="empresa-profesor">Profesor asignado</label>
+                        <select id="empresa-profesor" name="empresa-profesor">
+                            <option value="">Sin asignar</option>
+                            <option value="prof1">Profesor 1</option>
+                            <option value="prof2">Profesor 2</option>
+                            <option value="prof3">Profesor 3</option>
+                        </select>
+                    </div>
+
+                    <div class="acciones-form">
+                        <button type="submit" class="btn btn-primario">Guardar empresa</button>
+                    </div>
+
+                    <p id="mensaje-empresa-guardada" class="mensaje-exito oculto">
+                        Empresa guardada correctamente.
+                    </p>
+                </form>
+            </section>
+
+            <!-- PANTALLA: EMPRESAS POR PROFESOR -->
+            <section id="pantalla-empresas-profesor" class="subpantalla oculto">
+                <h2>Empresas por profesor</h2>
+
+                <div class="form-grupo">
+                    <label for="selector-profesor">Profesor</label>
+                    <select id="selector-profesor">
+                        <option value="">Selecciona un profesor</option>
+                        <option value="prof1">Profesor 1</option>
+                        <option value="prof2">Profesor 2</option>
+                        <option value="prof3">Profesor 3</option>
+                    </select>
+                </div>
+
+                <h3>Empresas asignadas</h3>
+                <ul class="lista-empresas-profesor">
+                    <li>Empresa Ejemplo 1</li>
+                    <li>Empresa Ejemplo 3</li>
+                </ul>
+
+                <h3>Empresas sin asignar</h3>
+                <ul class="lista-empresas-profesor">
+                    <li>Empresa Ejemplo 2</li>
+                </ul>
+            </section>
+
+            <!-- PANTALLA: ALUMNOS / PRÁCTICAS -->
+            <section id="pantalla-alumnos" class="subpantalla oculto">
+                <h2>Registro de alumnos / prácticas</h2>
+
+                <form id="form-alumnos" class="formulario">
+                    <div class="grid-2">
+                        <div class="form-grupo">
+                            <label for="alumnos-ciclo">Ciclo</label>
+                            <select id="alumnos-ciclo" name="alumnos-ciclo">
+                                <option value="">Seleccione un ciclo</option>
+                                <option value="DAW">DAW</option>
+                                <option value="DAM">DAM</option>
+                                <option value="ASIR">ASIR</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="alumnos-numero">Número de alumnos</label>
+                            <input type="number" id="alumnos-numero" name="alumnos-numero" min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="alumnos-notas">Notas / comentarios</label>
+                        <textarea id="alumnos-notas" name="alumnos-notas" rows="3"></textarea>
+                    </div>
+
+                    <div class="acciones-form">
+                        <button type="submit" class="btn btn-primario">Guardar registro</button>
+                    </div>
+
+                    <p id="mensaje-alumnos-guardado" class="mensaje-exito oculto">
+                        Registro de alumnos guardado.
+                    </p>
+                </form>
+            </section>
+
+        </main>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
