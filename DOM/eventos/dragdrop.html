@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid 1px red;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+        img { width: 150px; height: 150px; }
+    </style>
+</head>
+<body>
+    <div draggable="true" class="caja1">
+        <img src="reloj.jpg">
+    </div>
+    </div>
+    <div draggable="true" class="caja2"></div>
+    <script>
+        let caja1= document.querySelector('.caja1');
+        let caja2= document.querySelector('.caja2');
+        caja1.addEventListener('drop',()=>{
+            if(!caja1.childElementCount){
+                caja1.append(caja2.children[0]);
+            }
+        });
+        caja2.addEventListener('drop',()=>{
+            if(!caja2.childElementCount===0){
+                caja2.append(caja1.children[0]);
+            }
+        })
+        caja1.addEventListener('dragover',function(e){
+            e.preventDefault();
+        });
+        caja2.addEventListener('dragover',function(e){
+            e.preventDefault();
+        })
+
+    </script>
+</body>
+</html>
