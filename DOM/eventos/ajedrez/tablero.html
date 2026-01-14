@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero</title>
+</head>
+
+<body>
+    <div id="contenedor-tabla"></div>
+    <img id="caballo" src="caballo.png" draggable="true">
+    <script>
+        const filas = 8;
+        const columnas = 8;
+        const tabla = document.createElement("table");
+        tabla.style.borderCollapse = "collapse";
+        const caballo = document.getElementById("caballo");
+        caballo.style.width = "50px";
+        caballo.style.cursor = "grab";
+        let caballoX = 0;
+        let caballoY = 0;
+        for (let i = 0; i < filas; i++) {
+            const tr = document.createElement("tr");
+            for (let j = 0; j < columnas; j++) {
+                const td = document.createElement("td");
+                td.style.width = "60px";
+                td.style.height = "60px";
+                td.style.border = "1px solid black";
+                td.dataset.x = i;
+                td.dataset.y = j;
+                td.addEventListener("dragover", e => {
+                    e.preventDefault();
+                    td.style.outline = "3px solid yellow";
+                });
+                td.addEventListener("dragleave", () => {
+                    td.style.outline = "";
+                });
+                td.addEventListener("drop", e => {
+                    e.preventDefault();
+                    td.style.outline = "";
+                    const destinoX = parseInt(td.dataset.x);
+                    const destinoY = parseInt(td.dataset.y);
+                    const dx = Math.abs(destinoX - caballoX);
+                    const dy = Math.abs(destinoY - caballoY);
+                    const esMovimientoL =
+                        (dx === 2 && dy === 1) ||
+                        (dx === 1 && dy === 2);
+                    if (!esMovimientoL) {
+                        return;
+                    }
+                    td.innerHTML = "";
+                    td.appendChild(caballo);
+                    caballoX = destinoX;
+                    caballoY = destinoY;
+                });
+                if (i === 0 && j === 0) {
+                    td.appendChild(caballo);
+                }
+                tr.appendChild(td);
+            }
+            tabla.appendChild(tr);
+        }
+        document.getElementById("contenedor-tabla").appendChild(tabla);
+        caballo.addEventListener("dragstart", e => {
+            e.dataTransfer.setData("text", e.target.id);
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajas</title>
+</head>
+
+<body>
+    <button id="iniciar" onclick="iniciar">Iniciar</button><br>
+    <span id="tiempo"></span>
+    <div id="contenedor"></div>
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        let tiempoSpan = document.getElementById("tiempo");
+        let boton = document.getElementById("iniciar");
+        let intervalo=null;
+        boton.addEventListener("click", () => {
+            tiempo = 0;
+            tiempoSpan.textContent = "0 segundos";
+            let nums = [];
+            for (let i = 0; i <= 9; i++) {
+                nums.push(Math.floor(Math.random() * 99) + 1);
+            }
+            crearCajas(nums);
+            intervalo = setInterval(() => {
+                tiempo++;
+                tiempoSpan.textContent = tiempo + " segundos";
+            }, 1000);
+        });
+        function crearCajas(numeros) {
+            contenedor.innerHTML = "";
+            numeros.forEach((num, i) => {
+                let caja = document.createElement("div");
+                caja.textContent = num;
+                caja.draggable = true;
+                caja.id = "caja" + i;
+                caja.textContent = num;
+                caja.style.border = "1px solid black";
+                caja.style.backgroundColor = "#FFA420";
+                caja.style.width = "60px";
+                caja.style.height = "60px";
+                caja.style.display = "inline-block";
+                caja.style.textAlign = "center";
+                caja.style.lineHeight = "60px";
+
+                caja.addEventListener('drag', function (e) {
+                    caja.style.backgroundColor = "#FF0000";
+                });
+                caja.addEventListener('dragstart', function (e) {
+                    e.dataTransfer.setData('text', caja.textContent);
+                });
+                caja.addEventListener('dragend', function (e) {
+                    caja.style.backgroundColor = "#FFA420";
+                });
+                caja.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                });
+                caja.addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    let valorOrigen = e.dataTransfer.getData('text');
+                    let valorDestino = caja.textContent;
+                    caja.textContent = valorOrigen;
+                    let cajas = document.querySelectorAll("#contenedor div");
+                    cajas.forEach(c => {
+                        if (c !== caja && c.textContent === valorOrigen) {
+                            c.textContent = valorDestino;
+                        }
+                    });
+                    win();
+                });
+                contenedor.appendChild(caja);
+            });
+        };
+        function win() {
+            let cajas = document.querySelectorAll("#contenedor div");
+            let nums = [];
+            for (let i = 0; i < cajas.length; i++) {
+                nums.push(parseInt(cajas[i].textContent));
+            }
+            let ordenado = [];
+            for (let i = 0; i < nums.length; i++) {
+                ordenado[i] = nums[i];
+            }
+            ordenado.sort((a, b) => a - b);
+            let correcto = true;
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] !== ordenado[i]) {
+                    correcto = false;
+                }
+            }
+            if (correcto) {
+                alert("Lista ordenada!!");
+                clearInterval(intervalo);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
