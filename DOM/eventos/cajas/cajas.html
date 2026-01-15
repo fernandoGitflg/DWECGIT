@@ -51,6 +51,7 @@
                 });
                 caja.addEventListener('dragstart', function (e) {
                     e.dataTransfer.setData('text', caja.textContent);
+                    caja.style.backgroundColor = "#FF0000";
                 });
                 caja.addEventListener('dragend', function (e) {
                     caja.style.backgroundColor = "#FFA420";

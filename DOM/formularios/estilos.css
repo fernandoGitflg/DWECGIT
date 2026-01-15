@@ -1,0 +1,9 @@
+input:required{
+    background:palegreen;
+}
+input:valid, textarea:valid{
+    background:lightskyblue;
+}
+input:invalid, textarea:invalid{
+    background: orange;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <form id="formulario" action="#">
+        <select name="colores">
+            <option value="" selected>-Seleccionar un color-</option>
+            <option value="rojo">Rojo</option>
+            <option value="verde">Verde</option>
+        </select>
+
+        <input name="sabor" list="ice-cream-flavors">
+        <datalist id="ice-cream-flavors">
+            <option value="Chocolate">
+            <option value="Coconut">
+            <option value="Mint">
+            <option value="Strawberry">
+            <option value="Vanilla">
+        </datalist>
+
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <input type="number" name="edad" placeholder="Edad" min="0">
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        const fo = document.querySelector('#formulario');
+        fo.addEventListener('submit', function (e) {
+
+            let lista = fo['colores'];
+            console.log("Color seleccionado:", lista.value);
+
+            let sabor = fo['sabor'];
+            console.log("Sabor elegido:", sabor.value);
+
+            let nombre = fo['nombre'];
+            let correo = fo['correo'];
+            let edad = fo['edad'];
+
+            console.log("Nombre:", nombre.value);
+            console.log("Correo:", correo.value);
+            console.log("Edad:", edad.value);
+        });
+    </script>
+
+</body>
+
+</html>
