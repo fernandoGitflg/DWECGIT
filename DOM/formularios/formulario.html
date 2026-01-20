@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <form></form>
+    <script>
+        let formulario = document.querySelector("form");
+
+        function crearElemento(tipo, name = "", patron = "") {
+            let campo = document.createElement("input");
+
+            if (tipo !== "submit") {
+                let label = document.createElement("label");
+                label.textContent = name + ":";
+                label.setAttribute("for", name);
+
+                campo.type = tipo;
+                campo.name = name;
+                campo.id = name;
+                if (tipo !== "email") {
+                    campo.pattern = patron;
+                }
+                campo.required = true;
+
+                formulario.appendChild(label);
+                formulario.appendChild(campo);
+                formulario.appendChild(document.createElement("br"));
+            }
+            else {
+                campo.type = tipo;
+                campo.value = "Enviar";
+                formulario.appendChild(campo);
+            }
+        }
+
+        crearElemento("text", "nombre", "^[A-Za-záéíóúÁÉÍÓÚ]{20,}");
+        crearElemento("text", "nif", "^[0-9]{7,8}[A-Z]$");
+        crearElemento("text", "edad", "^(1[89]|[2-9][0-9])$");
+        crearElemento("text", "fecha", "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}$");
+        crearElemento("email", "email");
+        crearElemento("submit");
+        formulario.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let nif = document.getElementsByName("nif")[0].value;
+            let fecha = document.getElementsByName("fecha")[0].value;
+
+            let errores = [];
+
+            if (!validarNIF(nif)) {
+                errores.push("El NIF no es correcto");
+            }
+
+            if (!validarFechaLaboral(fecha)) {
+                errores.push("La fecha debe ser un día laboral (lunes a viernes)");
+            }
+
+            if (errores.length > 0) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Errores en el formulario",
+                    html: errores.join("<br>")
+                });
+            } else {
+                Swal.fire({
+                    icon: "success",
+                    title: "Todo correcto",
+                    text: "NIF y fecha válidos"
+                });
+            }
+        });
+
+        function validarNIF(nif) {
+            const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            const numero = parseInt(nif.substring(0, 8));
+            const letra = nif.charAt(8);
+            const letraCorrecta = letras[numero % 23];
+            return letra === letraCorrecta;
+        }
+        function validarFechaLaboral(fechaStr) {
+            const partes = fechaStr.split("/");
+            const dia = parseInt(partes[0]);
+            const mes = parseInt(partes[1]) - 1;
+            const año = parseInt(partes[2]);
+            const fecha = new Date(año, mes, dia);
+            const diaSemana = fecha.getDay();
+            return diaSemana >= 1 && diaSemana <= 5;
+        }
+
+    </script>
+</body>
+
+</html>
