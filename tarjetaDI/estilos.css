@@ -1,0 +1,109 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f4f7;
+}
+
+.contenedor-equipo {
+  width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  transition: .3s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0,0,0,.15);
+}
+
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nombre {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.rol {
+  color: #3b6edc;
+  font-size: .9rem;
+}
+
+.habilidades {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.habilidad {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.habilidad span {
+  font-size: .85rem;
+}
+
+.barra {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progreso {
+  height: 100%;
+  background: #3b6edc;
+}
+
+.html { width: 90%; }
+.css { width: 85%; }
+.js { width: 80%; }
+.react { width: 75%; }
+
+.contacto {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contacto a {
+  color: #3b6edc;
+  font-size: 1.3rem;
+}
+
+.contacto a:hover {
+  color: #1e3a8a;
+}
