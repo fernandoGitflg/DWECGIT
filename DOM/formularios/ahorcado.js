@@ -86,8 +86,30 @@ function caja2() {
         }
         if (numIntentos == 5) {
             formularioLetras.querySelector("input[type='submit']").disabled = true;
-        }        
+        }
         aciertos.textContent = estadoActual.join("");
     });
+    formularioSolucion.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let intentoSolucion = document.getElementById("solucion").value.toUpperCase();
+        if (intentoSolucion === palabra.toUpperCase()) {
+            Swal.fire({
+                title: "¡Correcto!",
+                text: "Has adivinado la palabra",
+                icon: "success"
+            });
+            formularioLetras.querySelector("input[type='submit']").disabled = true;
+            formularioSolucion.querySelector("input[type='submit']").disabled = true;
+        } else {
+            Swal.fire({
+                title: "Incorrecto",
+                text: "Esa no es la palabra",
+                icon: "error"
+            });
+            formularioLetras.querySelector("input[type='submit']").disabled = true;
+            formularioSolucion.querySelector("input[type='submit']").disabled = true;
+        }
+    });
+
 }
 
