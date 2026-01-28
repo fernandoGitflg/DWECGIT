@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="pruebaGET.php" method="get">
+        <fieldset>
+            <legend>Prueba con GET</legend>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="edad">Edad</label>
+            <input type="text" id="edad" name="edad">
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+    <script>
+        let formulario=document.forms[0];
+        formulario.addEventListener("submit", function(e){
+            e.preventDefault();
+            let nombre = document.getElementById("nombre").value.trim();
+            if (nombre.toLowerCase() !== "laura") { 
+                alert("El nombre debe ser Laura");
+            }else{
+                alert("Se enviara el formulario");
+                e.target.submit();
+            }
+        })
+    </script>
+</body>
+</html>
