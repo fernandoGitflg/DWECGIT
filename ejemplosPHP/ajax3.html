@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Prueba formularios PHP javascript</h1>
+    <h2 id="datos"></h2>
+    <form>
+        <input type="text" name="nombre" value="Pepe García">
+        <input type="text" name="edad" value="10">
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", function () {
+            if (xhr.status === 200) {
+                let datos = JSON.parse(xhr.responseText);
+                let personas = "";
+                datos.personas.forEach(element => {
+                    personas += `Nombre: ${element.nombre} - Edad: ${element.edad}<br>`;
+                });
+                document.querySelector("#datos").innerHTML = personas+datos.mensaje;
+            } else {
+                alert(`Error: ${xhr.status} ${xhr.statusText}`);
+            }
+        });
+
+        document.forms[0].addEventListener("submit", function (e) {
+            e.preventDefault();
+            //xhr.open("POST", "http://localhost:8080/pruebaPOST.php");
+            //xhr.send(new FormData(document.forms[0]));
+            /*let formulario = new FormData();
+            formulario.append("nombre", "Pepe");
+            formulario.append("edad", "24")
+            /*formulario.append("nombre","Laura");
+            formulario.append("edad","18");*/
+            let personas=[
+                {
+                    nombre:"Pepe",
+                    edad:"10"
+                },
+                {
+                    nombre:"Laura",
+                    edad:"18"
+                }
+            ];
+            xhr.open("POST", "http://localhost:8080/pruebaPOST.php");
+            xhr.send(JSON.stringify(personas));
+        })
+    </script>
+
+</body>
+
+</html>

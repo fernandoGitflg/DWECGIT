@@ -9,6 +9,10 @@
 <body>
     <h1>Prueba formularios PHP javascript</h1>
     <h2 id="datos"></h2>
+    <form>
+        <input type="text" name="nombre" value="Pepe García">
+        <input type="number" name="edad" value="10">
+    </form>
     <script>
         let parametros=new URLSearchParams("nombre=Pepe García&edad=10");
         let url="http://localhost:8080/pruebaPOST.php";
