@@ -25,7 +25,6 @@ window.addEventListener("load", cargaPagina);
 
 function cargaPagina() {
   formulario = document.getElementById("formulario");
-  formulario.addEventListener("submit", function(e) { e.preventDefault(); })
   
   btnAdd = document.getElementById("formulario-aniadir");
   btnMod = document.getElementById("formulario-modificar");
